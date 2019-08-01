@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Alert } from "antd";
+import { Alert, Button } from "antd";
 import laptop from "../../assets/images/laptop-build.png";
 
 export default class Build extends Component {
@@ -10,7 +10,8 @@ export default class Build extends Component {
     gpu: "",
     hdd: "",
     ram: "",
-    error: ""
+    error: "",
+    loading: false
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -26,7 +27,7 @@ export default class Build extends Component {
     };
 
     if (name && category) {
-      this.setState({ error: "" });
+      this.setState({ error: "", loading: true });
       console.log(name, category, requiredConfig);
       // Send name, category, requiredConfig to API
     } else {
@@ -37,7 +38,7 @@ export default class Build extends Component {
   };
 
   render() {
-    const { name, category, cpu, ram, gpu, hdd, error } = this.state;
+    const { name, category, cpu, ram, gpu, hdd, error, loading } = this.state;
 
     return (
       <div className="build-container data-container">
@@ -46,6 +47,7 @@ export default class Build extends Component {
             className="well form-horizontal"
             action=" "
             onSubmit={this.handleSubmit}
+            id="buildForm"
           >
             <fieldset>
               <h2 style={{ marginLeft: "14px" }}>
@@ -221,10 +223,16 @@ export default class Build extends Component {
               <div className="form-group">
                 <label className="col-md-4 control-label" />
                 <div className="col-md-4">
-                  <button type="submit" className="btn btn-warning">
+                  <Button
+                    size="large"
+                    form="buildForm"
+                    key="submit"
+                    htmlType="submit"
+                    type="primary"
+                    loading={loading}
+                  >
                     Submit
-                    <span className="glyphicon glyphicon-send" />
-                  </button>
+                  </Button>
                 </div>
               </div>
             </fieldset>
