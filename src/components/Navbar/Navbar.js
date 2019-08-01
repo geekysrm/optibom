@@ -24,21 +24,21 @@ export default class Navbar extends Component {
             className={selected === "home" ? "link link-selected" : "link"}
             onClick={() => this.setSelected("home")}
           >
-            Home
+            HOME
           </Link>
           <Link
-            to='/'
-            className={selected === "bacd" ? "link link-selected" : "link"}
-            onClick={() => this.setSelected("bacd")}
+            to='/build'
+            className={selected === "build" ? "link link-selected" : "link"}
+            onClick={() => this.setSelected("build")}
           >
-            BACD
+            BUILD
           </Link>
           <Link
-            to='/'
-            className={selected === "abcd" ? "link link-selected" : "link"}
-            onClick={() => this.setSelected("abcd")}
+            to='/result'
+            className={selected === "result" ? "link link-selected" : "link"}
+            onClick={() => this.setSelected("result")}
           >
-            ABCD
+            RESULT
           </Link>
         </div>
       </div>

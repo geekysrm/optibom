@@ -7,6 +7,7 @@ import "../assets/styles/App.css";
 import Navbar from "./Navbar/Navbar";
 import Landing from "./Landing/Landing";
 import Build from "./Build/Build";
+import Result from "./Results/Result";
 
 function App() {
   const { Header, Footer, Sider, Content } = Layout;
@@ -17,6 +18,7 @@ function App() {
         <Content className='layout-container' id='style-2'>
           <Route exact path='/' component={Landing} />
           <Route exact path='/build' component={Build} />
+          <Route exact path='/result' component={Result} />
         </Content>
       </Layout>
     </Router>
