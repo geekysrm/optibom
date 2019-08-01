@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import laptop from "../../assets/images/laptop-build.png";
 
 export default class Build extends Component {
+  state = {
+    name: "",
+    category: "",
+    requiredConfig: []
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    console.log(this.state);
+  };
+
   render() {
     return (
       <div className="build-container data-container">
@@ -9,8 +20,7 @@ export default class Build extends Component {
           <form
             className="well form-horizontal"
             action=" "
-            method="post"
-            id="contact_form"
+            onSubmit={this.handleSubmit}
           >
             <fieldset>
               {/* Form Name */}
