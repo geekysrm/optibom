@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Alert } from "antd";
 import laptop from "../../assets/images/laptop-build.png";
 
 export default class Build extends Component {
@@ -8,20 +9,29 @@ export default class Build extends Component {
     cpu: "",
     gpu: "",
     hdd: "",
-    ram: ""
+    ram: "",
+    error: ""
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
 
   handleSubmit = e => {
+    const { name, category, cpu, ram, gpu, hdd } = this.state;
     e.preventDefault();
     const requiredConfig = {
-      cpu: this.state.cpu,
-      gpu: this.state.gpu,
-      ram: this.state.ram,
-      hdd: this.state.hdd
+      cpu,
+      gpu,
+      ram,
+      hdd
     };
-    // Send name, category, requiredConfig to API
+
+    if (name && category) {
+      // Send name, category, requiredConfig to API
+    } else {
+      this.setState({
+        error: "Please enter all required fields"
+      });
+    }
   };
 
   render() {
@@ -36,15 +46,20 @@ export default class Build extends Component {
             onSubmit={this.handleSubmit}
           >
             <fieldset>
-              {/* Form Name */}
-              <h2>
+              <h2 style={{ marginLeft: "14px" }}>
                 Build your laptop{" "}
                 <img src={laptop} style={{ width: "34px", height: "34px" }} />
               </h2>
-
-              {/* Text input*/}
+              <Alert
+                style={{ marginLeft: "14px" }}
+                message="Error Text"
+                type="error"
+              />
+              <br />
               <div className="form-group">
-                <label className="col-md-4 control-label">Laptop Name</label>
+                <label className="col-md-4 control-label">
+                  Laptop Name <span style={{ color: "red" }}>*</span>
+                </label>
                 <div className="col-md-4 inputGroupContainer">
                   <div className="input-group">
                     <span className="input-group-addon">
@@ -62,10 +77,9 @@ export default class Build extends Component {
                 </div>
               </div>
 
-              {/* Select Basic */}
               <div className="form-group">
                 <label className="col-md-4 control-label">
-                  Category of Laptop
+                  Category of Laptop <span style={{ color: "red" }}>*</span>
                 </label>
                 <div className="col-md-4 selectContainer">
                   <div className="input-group">
