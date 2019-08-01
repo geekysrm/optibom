@@ -58,7 +58,11 @@ export default class Build extends Component {
                 Build your laptop{" "}
                 <img src={laptop} style={{ width: "34px", height: "34px" }} />
               </h2>
-              {error && <Alert message={error} type='error' />}
+              {error && (
+                <div style={{ paddingRight: "1rem" }}>
+                  <Alert message={error} type='error' className='col-md-8' />
+                </div>
+              )}
 
               <div className='row mt-2'>
                 <div className='form-group col-md-4'>
