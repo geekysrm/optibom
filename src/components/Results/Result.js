@@ -112,9 +112,16 @@ export default class Result extends Component {
     }
   };
   render() {
+    const { name, laptop_id, category, options } = this.state;
+
     return (
       <div className='result-container data-container'>
-        <LaptopDetails />
+        <LaptopDetails
+          name={name}
+          id={laptop_id}
+          category={category}
+          options={options}
+        />
 
         <div className='bom-version-list'>Bom Version</div>
         <div className='current-bom'>
