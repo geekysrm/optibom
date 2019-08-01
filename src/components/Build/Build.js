@@ -26,6 +26,8 @@ export default class Build extends Component {
     };
 
     if (name && category) {
+      this.setState({ error: "" });
+      console.log(name, category, requiredConfig);
       // Send name, category, requiredConfig to API
     } else {
       this.setState({
@@ -35,7 +37,7 @@ export default class Build extends Component {
   };
 
   render() {
-    const { name, category, cpu, ram, gpu, hdd } = this.state;
+    const { name, category, cpu, ram, gpu, hdd, error } = this.state;
 
     return (
       <div className="build-container data-container">
@@ -50,11 +52,13 @@ export default class Build extends Component {
                 Build your laptop{" "}
                 <img src={laptop} style={{ width: "34px", height: "34px" }} />
               </h2>
-              <Alert
-                style={{ marginLeft: "14px" }}
-                message="Error Text"
-                type="error"
-              />
+              {error && (
+                <Alert
+                  style={{ marginLeft: "14px" }}
+                  message={error}
+                  type="error"
+                />
+              )}
               <br />
               <div className="form-group">
                 <label className="col-md-4 control-label">
