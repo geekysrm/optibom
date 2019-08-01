@@ -1,45 +1,36 @@
 import React, { Component } from "react";
-import { Menu, Icon } from "antd";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default class Navbar extends Component {
-  state = {
-    selected: "home"
-  };
-
-  setSelected = event => {
-    this.setState({
-      selected: event
-    });
-  };
-
   render() {
-    const { selected } = this.state;
     return (
       <div className='navbar'>
         <div className='navbar-header'>Mars</div>
         <div className='navbar-links'>
-          <Link
+          <NavLink
+            exact
             to='/'
-            className={selected === "home" ? "link link-selected" : "link"}
-            onClick={() => this.setSelected("home")}
+            className='link'
+            activeClassName='link link-selected'
           >
             HOME
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
+            exact
             to='/build'
-            className={selected === "build" ? "link link-selected" : "link"}
-            onClick={() => this.setSelected("build")}
+            className='link'
+            activeClassName='link link-selected'
           >
             BUILD
-          </Link>
-          <Link
+          </NavLink>
+          <NavLink
+            exact
             to='/result'
-            className={selected === "result" ? "link link-selected" : "link"}
-            onClick={() => this.setSelected("result")}
+            className='link'
+            activeClassName='link link-selected'
           >
             RESULT
-          </Link>
+          </NavLink>
         </div>
       </div>
     );
