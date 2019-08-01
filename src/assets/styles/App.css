@@ -61,6 +61,7 @@ body {
   align-items: center;
   justify-content: space-evenly;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 /* Navbar */
