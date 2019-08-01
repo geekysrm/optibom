@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import {  Button } from 'antd';
 
 export default class Landing extends Component {
   render() {
@@ -10,6 +11,9 @@ export default class Landing extends Component {
           <div className='landing-card'>Hello</div>
         </div>
         <div className='landing-btn'>Get Started</div>
+        <Button style={{ marginLeft: 8 }}>
+          Hello
+      </Button>
       </div>
     );
   }
