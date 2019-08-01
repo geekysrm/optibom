@@ -6,6 +6,7 @@ import "../assets/styles/App.css";
 
 import Navbar from "./Navbar/Navbar";
 import Landing from "./Landing/Landing";
+import Build from "./Build/Build";
 
 function App() {
   const { Header, Footer, Sider, Content } = Layout;
@@ -15,6 +16,7 @@ function App() {
         <Navbar />
         <Content className='layout-container' id='style-2'>
           <Route exact path='/' component={Landing} />
+          <Route exact path='/build' component={Build} />
         </Content>
       </Layout>
     </Router>
