@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-import {  Button } from 'antd';
-=======
 import { Link } from "react-router-dom";
->>>>>>> c2b4b40a6f331e3e7b440c8102360e994d82d687
 
 export default class Landing extends Component {
   render() {
