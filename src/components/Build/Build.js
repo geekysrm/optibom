@@ -8,10 +8,10 @@ export default class Build extends Component {
   <form className="well form-horizontal" action=" " method="post" id="contact_form">
     <fieldset>
       {/* Form Name */}
-      <legend>Contact Us Today!</legend>
+      <h2>Build your laptop</h2>
       {/* Text input*/}
       <div className="form-group">
-        <label className="col-md-4 control-label">First Name</label>  
+        <label className="col-md-4 control-label">Laptop Name</label>  
         <div className="col-md-4 inputGroupContainer">
           <div className="input-group">
             <span className="input-group-addon"><i className="glyphicon glyphicon-user" /></span>
@@ -19,124 +19,117 @@ export default class Build extends Component {
           </div>
         </div>
       </div>
-      {/* Text input*/}
-      <div className="form-group">
-        <label className="col-md-4 control-label">Last Name</label> 
-        <div className="col-md-4 inputGroupContainer">
-          <div className="input-group">
-            <span className="input-group-addon"><i className="glyphicon glyphicon-user" /></span>
-            <input name="last_name" placeholder="Last Name" className="form-control" type="text" />
-          </div>
-        </div>
-      </div>
-      {/* Text input*/}
-      <div className="form-group">
-        <label className="col-md-4 control-label">E-Mail</label>  
-        <div className="col-md-4 inputGroupContainer">
-          <div className="input-group">
-            <span className="input-group-addon"><i className="glyphicon glyphicon-envelope" /></span>
-            <input name="email" placeholder="E-Mail Address" className="form-control" type="text" />
-          </div>
-        </div>
-      </div>
-      {/* Text input*/}
-      <div className="form-group">
-        <label className="col-md-4 control-label">Phone #</label>  
-        <div className="col-md-4 inputGroupContainer">
-          <div className="input-group">
-            <span className="input-group-addon"><i className="glyphicon glyphicon-earphone" /></span>
-            <input name="phone" placeholder="(845)555-1212" className="form-control" type="text" />
-          </div>
-        </div>
-      </div>
-      {/* Text input*/}
-      <div className="form-group">
-        <label className="col-md-4 control-label">Address</label>  
-        <div className="col-md-4 inputGroupContainer">
-          <div className="input-group">
-            <span className="input-group-addon"><i className="glyphicon glyphicon-home" /></span>
-            <input name="address" placeholder="Address" className="form-control" type="text" />
-          </div>
-        </div>
-      </div>
-      {/* Text input*/}
-      <div className="form-group">
-        <label className="col-md-4 control-label">City</label>  
-        <div className="col-md-4 inputGroupContainer">
-          <div className="input-group">
-            <span className="input-group-addon"><i className="glyphicon glyphicon-home" /></span>
-            <input name="city" placeholder="city" className="form-control" type="text" />
-          </div>
-        </div>
-      </div>
+
       {/* Select Basic */}
       <div className="form-group"> 
-        <label className="col-md-4 control-label">State</label>
+        <label className="col-md-4 control-label">Category of Laptop</label>
         <div className="col-md-4 selectContainer">
           <div className="input-group">
             <span className="input-group-addon"><i className="glyphicon glyphicon-list" /></span>
             <select name="state" className="form-control selectpicker">
-              <option value=" ">Please select your state</option>
-              <option>Alabama</option>
-              <option>Alaska</option>
-              <option>Arizona</option>
+              <option value=" ">Please select laptop category</option>
+              <option value="budget">Budget</option>
+              <option value="midrange">Midrange</option>
+              <option value="gaming">Gaming</option>
+              <option value="business">Business</option>
             </select>
           </div>
         </div>
       </div>
-      {/* Text input*/}
-      <div className="form-group">
-        <label className="col-md-4 control-label">Zip Code</label>  
-        <div className="col-md-4 inputGroupContainer">
+
+      <div className="form-group"> 
+        <label className="col-md-4 control-label">Any additional required config</label>
+        <div className="col-md-4 selectContainer">
           <div className="input-group">
-            <span className="input-group-addon"><i className="glyphicon glyphicon-home" /></span>
-            <input name="zip" placeholder="Zip Code" className="form-control" type="text" />
+            <span className="input-group-addon"><i className="glyphicon glyphicon-list" /></span>
+            <select name="cpu" className="form-control selectpicker">
+              <option value=" ">Select CPU</option>
+              <option>i3</option>
+              <option>i5</option>
+              <option>Ryzen</option>
+            </select>
+
+          {/* Depends on selected option value */}
+            <select name="gpu" className="form-control selectpicker">
+              <option value=" ">Select CPU Manufacturer</option>
+              <option>Intel</option>
+              <option>AMD</option>
+            </select>
           </div>
         </div>
       </div>
-      {/* Text input*/}
-      <div className="form-group">
-        <label className="col-md-4 control-label">Website or domain name</label>  
-        <div className="col-md-4 inputGroupContainer">
+
+      <div className="form-group"> 
+        <div className="col-md-4 selectContainer">
           <div className="input-group">
-            <span className="input-group-addon"><i className="glyphicon glyphicon-globe" /></span>
-            <input name="website" placeholder="Website or domain name" className="form-control" type="text" />
+            <span className="input-group-addon"><i className="glyphicon glyphicon-list" /></span>
+            <select name="gpu" className="form-control selectpicker">
+              <option value=" ">Select GPU</option>
+              <option>GeForce GTX 1080</option>
+              <option>GeForce GTX 1070</option>
+              <option>GeForce GTX 1050Ti</option>
+            </select>
+
+            <select name="gpu" className="form-control selectpicker">
+              <option value=" ">Select GPU Manufacturer</option>
+              <option>Nvidia</option>
+              <option>AMD</option>
+            </select>
           </div>
         </div>
       </div>
-      {/* radio checks */}
-      <div className="form-group">
-        <label className="col-md-4 control-label">Do you have hosting?</label>
-        <div className="col-md-4">
-          <div className="radio">
-            <label>
-              <input type="radio" name="hosting" defaultValue="yes" /> Yes
-            </label>
-          </div>
-          <div className="radio">
-            <label>
-              <input type="radio" name="hosting" defaultValue="no" /> No
-            </label>
-          </div>
-        </div>
-      </div>
-      {/* Text area */}
-      <div className="form-group">
-        <label className="col-md-4 control-label">Project Description</label>
-        <div className="col-md-4 inputGroupContainer">
+
+      <div className="form-group"> 
+
+        <div className="col-md-4 selectContainer">
           <div className="input-group">
-            <span className="input-group-addon"><i className="glyphicon glyphicon-pencil" /></span>
-            <textarea className="form-control" name="comment" placeholder="Project Description" defaultValue={""} />
+            <span className="input-group-addon"><i className="glyphicon glyphicon-list" /></span>
+            <select name="state" className="form-control selectpicker">
+              <option value=" ">Select RAM</option>
+              <option>2 GB</option>
+              <option>4 GB</option>
+              <option>8 GB</option>
+            </select>
+
+            <select name="gpu" className="form-control selectpicker">
+              <option value=" ">Select RAM Manufacturer</option>
+              <option>Corsair</option>
+              <option>Kingston</option>
+            </select>
           </div>
         </div>
       </div>
-      {/* Success message */}
-      <div className="alert alert-success" role="alert" id="success_message">Success <i className="glyphicon glyphicon-thumbs-up" /> Thanks for contacting us, we will get back to you shortly.</div>
-      {/* Button */}
+
+
+      <div className="form-group"> 
+
+        <div className="col-md-4 selectContainer">
+          <div className="input-group">
+            <span className="input-group-addon"><i className="glyphicon glyphicon-list" /></span>
+            <select name="state" className="form-control selectpicker">
+              <option value=" ">Select HDD/SSD</option>
+              <option>2 TB HDD</option>
+              <option>2 TB SDD</option>
+              <option>4 TB HDD</option>
+            </select>
+
+            <select name="state" className="form-control selectpicker">
+              <option value=" ">Select HDD/SSD Manufacturer</option>
+              <option>Western Digital</option>
+              <option>Seagate</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+
+     
+      {/* <div className="alert alert-success" role="alert" id="success_message">Success <i className="glyphicon glyphicon-thumbs-up" /> Thanks for contacting us, we will get back to you shortly.</div> */}
+
       <div className="form-group">
         <label className="col-md-4 control-label" />
         <div className="col-md-4">
-          <button type="submit" className="btn btn-warning">Send <span className="glyphicon glyphicon-send" /></button>
+          <button type="submit" className="btn btn-warning">Submit<span className="glyphicon glyphicon-send" /></button>
         </div>
       </div>
     </fieldset>
