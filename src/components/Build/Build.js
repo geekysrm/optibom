@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import laptop from "../../assets/images/laptop-build.png";
 
 export default class Build extends Component {
   render() {
@@ -13,7 +14,11 @@ export default class Build extends Component {
           >
             <fieldset>
               {/* Form Name */}
-              <h2>Build your laptop</h2>
+              <h2>
+                Build your laptop{" "}
+                <img src={laptop} style={{ width: "34px", height: "34px" }} />
+              </h2>
+
               {/* Text input*/}
               <div className="form-group">
                 <label className="col-md-4 control-label">Laptop Name</label>
@@ -43,7 +48,7 @@ export default class Build extends Component {
                       <i className="glyphicon glyphicon-list" />
                     </span>
                     <select name="state" className="form-control selectpicker">
-                      <option value=" ">Please select laptop category</option>
+                      <option value=" ">Please select category</option>
                       <option value="budget">Budget</option>
                       <option value="midrange">Midrange</option>
                       <option value="gaming">Gaming</option>
@@ -69,12 +74,11 @@ export default class Build extends Component {
                       <option>Ryzen</option>
                     </select>
 
-                    {/* Depends on selected option value */}
-                    <select name="gpu" className="form-control selectpicker">
+                    {/* <select name="gpu" className="form-control selectpicker">
                       <option value=" ">Select CPU Manufacturer</option>
                       <option>Intel</option>
                       <option>AMD</option>
-                    </select>
+                    </select> */}
                   </div>
                 </div>
               </div>
@@ -92,11 +96,11 @@ export default class Build extends Component {
                       <option>GeForce GTX 1050Ti</option>
                     </select>
 
-                    <select name="gpu" className="form-control selectpicker">
+                    {/* <select name="gpu" className="form-control selectpicker">
                       <option value=" ">Select GPU Manufacturer</option>
                       <option>Nvidia</option>
                       <option>AMD</option>
-                    </select>
+                    </select> */}
                   </div>
                 </div>
               </div>
@@ -114,11 +118,11 @@ export default class Build extends Component {
                       <option>8 GB</option>
                     </select>
 
-                    <select name="gpu" className="form-control selectpicker">
+                    {/* <select name="gpu" className="form-control selectpicker">
                       <option value=" ">Select RAM Manufacturer</option>
                       <option>Corsair</option>
                       <option>Kingston</option>
-                    </select>
+                    </select> */}
                   </div>
                 </div>
               </div>
@@ -136,11 +140,11 @@ export default class Build extends Component {
                       <option>4 TB HDD</option>
                     </select>
 
-                    <select name="state" className="form-control selectpicker">
+                    {/* <select name="state" className="form-control selectpicker">
                       <option value=" ">Select HDD/SSD Manufacturer</option>
                       <option>Western Digital</option>
                       <option>Seagate</option>
-                    </select>
+                    </select> */}
                   </div>
                 </div>
               </div>
