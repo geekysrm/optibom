@@ -1,18 +1,22 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Layout } from "antd";
+import "antd/dist/antd.css";
 import "../assets/styles/App.css";
 
-import Sidebar from "./sidebar/Sidebar";
-import Landing from "./landing/Landing";
+import Navbar from "./Navbar/Navbar";
+import Landing from "./Landing/Landing";
 
 function App() {
+  const { Header, Footer, Sider, Content } = Layout;
   return (
     <Router>
-      <div className='App'>
-        <Sidebar />
-        <Route exact path='/' component={Landing} />
-        <Route exact path='/:selection' component={Landing} />
-      </div>
+      <Layout className='layout'>
+        <Navbar />
+        <Content className='layout-container' id='style-2'>
+          <Route exact path='/' component={Landing} />
+        </Content>
+      </Layout>
     </Router>
   );
 }

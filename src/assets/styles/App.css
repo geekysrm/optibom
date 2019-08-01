@@ -1,9 +1,14 @@
+@import "~antd/dist/antd.css";
+
+/* General */
+
 html,
 body {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 #root,
@@ -13,6 +18,8 @@ body {
   display: flex;
   flex-direction: row;
 }
+
+/* Scrollbar */
 
 #style-2::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -29,4 +36,119 @@ body {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: black;
+}
+
+/* Container */
+
+.layout-container {
+  overflow-y: auto;
+  background: #8e2de2;
+  background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0);
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  padding: 1rem;
+  padding-top: 0;
+}
+
+.landing-container {
+  background-color: white;
+  height: 100%;
+  border-radius: 1rem 0 1rem 0;
+  padding: 1rem;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+/* Navbar */
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  background: #8e2de2;
+  background: -webkit-linear-gradient(to right, #8e2de2, #4a00e0);
+  background: linear-gradient(to right, #8e2de2, #4a00e0);
+  padding: 0;
+  height: 60px;
+}
+
+.navbar-header {
+  color: white;
+  font-size: 32px;
+  font-weight: 900;
+  margin-left: 1.5rem;
+}
+
+.navbar-links {
+  margin-left: auto;
+  padding: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+/* Link */
+
+.link {
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: auto;
+  color: white;
+  min-width: 80px;
+}
+
+.link-selected {
+  background-color: white;
+  color: black;
+}
+
+.link:hover {
+  color: white;
+}
+
+.link-selected:hover {
+  color: black;
+}
+
+/* landing-page */
+.landing-card {
+  border-radius: 1rem 0 1rem 0;
+  min-height: 100px;
+  min-width: 100px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landing-card-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.landing-btn {
+  background-color: #4a00e0;
+  padding: 1rem;
+  color: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  border-radius: 1rem 0 1rem 0;
+}
+
+.landing-btn:hover {
+  cursor: pointer;
+}
+
+.landing-btn:active {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
