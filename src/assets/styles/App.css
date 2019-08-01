@@ -64,6 +64,10 @@ body {
   overflow-y: auto;
 }
 
+.build-container {
+  overflow-y: auto;
+}
+
 /* Navbar */
 
 .navbar {
