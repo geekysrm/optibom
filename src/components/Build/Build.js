@@ -49,21 +49,25 @@ export default class Build extends Component {
     }
   };
 
-  handleSubmit = e => {
+  handleSubmit = async e => {
     const { name, category, cpu, ram, gpu, hdd } = this.state;
     e.preventDefault();
-    const requiredConfig = {
-      cpu,
-      gpu,
-      ram,
-      hdd,
-    };
-
     if (name && category) {
       this.setState({ error: "", buttonLoading: true });
-      console.log(name, category, requiredConfig);
-      // Send name, category, requiredConfig to API
-      // const laptop_type = category;
+
+      try {
+        const { data } = await axios.get(
+          `${BACKEND_URL}/get_dataframe?laptop_type=${category}&cpu=${cpu}&gpu=${gpu}&hdd=${hdd}&ram=${ram}`
+        );
+        console.log(data.message);
+        this.setState({ error: "", buttonLoading: false });
+      } catch (error) {
+        console.error(error);
+        this.setState({
+          error: "Some server error occured!",
+          buttonLoading: false,
+        });
+      }
     } else {
       this.setState({
         error: "Please enter all required fields",
@@ -72,7 +76,6 @@ export default class Build extends Component {
   };
 
   render() {
-    console.log(this.state);
     const {
       name,
       category,
