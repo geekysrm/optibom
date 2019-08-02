@@ -17,7 +17,7 @@ export default class ComponentDetails extends Component {
       },
     ];
     return (
-      <div className="component-details">
+      <div className="component-details style-2">
         {/* <Empty description={<span>Please select an item</span>} /> */}
         <List
           itemLayout="vertical"

@@ -32,6 +32,7 @@
   width: 45%;
   border-radius: 0 0 1rem 0;
   padding: 1rem;
+  overflow-y: auto;
 }
 
 /* Laptop Details */
