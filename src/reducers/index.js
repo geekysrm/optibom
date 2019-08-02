@@ -1,7 +1,7 @@
 // Root Reducer
 import { combineReducers } from "redux";
-import testReducer from "./testReducer";
+import bomReducer from "./bomReducer";
 
 export default combineReducers({
-  test: testReducer,
+  bom: bomReducer,
 });

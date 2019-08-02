@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { Alert, Button } from "antd";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
+
 import laptop from "../../assets/images/laptop-build.png";
 import BACKEND_URL from "../../constants/BACKEND_URL";
+import { getBom } from "../../actions/bomActions";
 
 class Build extends Component {
   state = {
@@ -54,22 +57,9 @@ class Build extends Component {
     const { name, category, cpu, ram, gpu, hdd } = this.state;
     e.preventDefault();
     if (name && category) {
-      this.setState({ error: "", buttonLoading: true });
-
-      try {
-        const { data } = await axios.get(
-          `${BACKEND_URL}/get_dataframe?laptop_type=${category}&cpu=${cpu}&gpu=${gpu}&hdd=${hdd}&ram=${ram}`
-        );
-        console.log(data.message);
-        this.setState({ error: "", buttonLoading: false });
-        this.props.history.push("/result");
-      } catch (error) {
-        console.error(error);
-        this.setState({
-          error: "Some server error occured!",
-          buttonLoading: false,
-        });
-      }
+      this.setState({ buttonLoading: true });
+      await this.props.getBom(category, cpu, gpu, hdd, ram, name);
+      this.setState({ error: "", buttonLoading: false });
     } else {
       this.setState({
         error: "Please enter all required fields",
@@ -320,4 +310,8 @@ class Build extends Component {
   }
 }
 
-export default withRouter(Build);
+// export default withRouter(Build);
+export default connect(
+  null,
+  { getBom }
+)(withRouter(Build));

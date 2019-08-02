@@ -1,2 +1,2 @@
 // export all types of actions
-// // export const ADD_SUBSCRIBER = "ADD_SUBSCRIBER";
+export const GET_BOM = "GET_BOM";
