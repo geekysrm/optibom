@@ -151,17 +151,11 @@ class Result extends Component {
         <div className="bom-version-list">Bom Version</div>
         <div className="current-bom">
           <ComponentList
-            list={this.state[this.state.selectedCategory]}
+            list={this.props.bom[this.state.selectedCategory]}
             onClick={this.onClick}
           />
           <ComponentDetails
-            detail={
-              this.state.selectedItem
-                ? this.state[this.state.selectedCategory][
-                    this.state.selectedItem
-                  ]
-                : null
-            }
+            detail={this.props.bom[this.state.selectedCategory]}
           />
         </div>
       </div>

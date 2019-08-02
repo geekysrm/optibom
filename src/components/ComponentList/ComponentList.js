@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Empty } from "antd";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
-export default class ComponentList extends Component {
+class ComponentList extends Component {
   render() {
     return (
       <div className="components-list style-2 overflowy">
@@ -14,37 +16,43 @@ export default class ComponentList extends Component {
               className="components-list-card"
               onClick={() => this.props.onClick("cpu")}
             >
-              {this.props.list.cpu.processor}
+              {this.props.list[0].commodity}
             </div>
             <div
               className="components-list-card"
               onClick={() => this.props.onClick("gpu")}
             >
-              {this.props.list.gpu.name}
+              {this.props.list[1].commodity}
             </div>
             <div
               className="components-list-card"
               onClick={() => this.props.onClick("hdd")}
             >
-              {this.props.list.hdd.size}
+              {this.props.list[2].commodity}
             </div>
             <div
               className="components-list-card"
               onClick={() => this.props.onClick("ram")}
             >
-              {this.props.list.ram.size}
+              {this.props.list[6].commodity}
             </div>
             <div
               className="components-list-card"
               onClick={() => this.props.onClick("keyboard")}
             >
-              {this.props.list.keyboard.supplier}
+              {this.props.list[3].supplier} {this.props.list[3].commodity}
             </div>
             <div
               className="components-list-card"
               onClick={() => this.props.onClick("mouse")}
             >
-              {this.props.list.mouse.supplier}
+              {this.props.list[4].supplier} {this.props.list[4].commodity}
+            </div>
+            <div
+              className="components-list-card"
+              onClick={() => this.props.onClick("screen")}
+            >
+              {this.props.list[5].commodity} Res
             </div>
           </div>
         ) : (
@@ -56,3 +64,14 @@ export default class ComponentList extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    bom: state.bom,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(withRouter(ComponentList));

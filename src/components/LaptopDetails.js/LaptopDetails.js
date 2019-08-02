@@ -37,10 +37,10 @@ export default class LaptopDetails extends Component {
                   onChange={onChange}
                 >
                   <option value=" ">Please select result type</option>
-                  <option value="lowcost">Low Cost</option>
-                  <option value="highspr">Highest SPR</option>
-                  <option value="highcpr">Highest CPR</option>
-                  <option value="optimum">Optimum Configuration</option>
+                  <option value="lowCostBom">Low Cost</option>
+                  <option value="highSprBom">Highest SPR</option>
+                  <option value="highCprBom">Highest CPR</option>
+                  <option value="optimizedBom">Optimum Configuration</option>
                 </select>
               </div>
             </div>
