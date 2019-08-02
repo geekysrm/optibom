@@ -15,6 +15,9 @@
 
 .bom-version-list {
   width: 100%;
+  padding: 0.5rem;
+  margin: 0.3rem 0 0.3rem 0;
+  background: black;
 }
 
 .components-list {
@@ -37,8 +40,9 @@
 }
 
 .laptop-image img {
-  height: 300px;
-  width: 500px;
+  height: 200px;
+  width: 300px;
+  border-radius: 1rem 0 0 0;
 }
 
 .laptop-data {
