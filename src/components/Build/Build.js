@@ -33,11 +33,7 @@ class Build extends Component {
         ram: "",
       });
       try {
-<<<<<<< HEAD
-        const res = await axios.get(
-=======
         const { data } = await axios.get(
->>>>>>> e141683345a47dbfe16f282c978ec46d89c18e22
           `${BACKEND_URL}/get_dropdown_datas?laptop_type=${e.target.value}`
         );
         console.log(data.message);
