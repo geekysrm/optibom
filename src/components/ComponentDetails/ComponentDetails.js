@@ -74,7 +74,9 @@ export default class ComponentDetails extends Component {
             )}
           />
         ) : (
-          <Empty description={<span>Please select an item</span>} />
+          <div className="center-content">
+            <Empty description={<span>Please select an item</span>} />
+          </div>
         )}
         {/*  */}
       </div>

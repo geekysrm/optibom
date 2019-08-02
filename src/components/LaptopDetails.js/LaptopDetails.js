@@ -19,6 +19,10 @@ export default class LaptopDetails extends Component {
             </div>
           </div>
 
+          <div className="laptop-category">
+            <p className="lead">Category: {category}</p>
+          </div>
+
           <div className="form-group detail-dropdown">
             <div className="selectContainer">
               <div className="input-group">

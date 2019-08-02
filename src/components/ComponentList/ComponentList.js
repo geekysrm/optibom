@@ -1,15 +1,15 @@
 import React, { Component } from "react";
+import { Empty } from "antd";
 
 export default class ComponentList extends Component {
   render() {
     return (
-      <div className="components-list style-2">
-        <div className="components-list-header">
-          <h3>Components</h3>
-        </div>
-        <hr />
+      <div className="components-list style-2 overflowy">
         {this.props.list ? (
           <div className="components-list-content style-2">
+            <div className="components-list-header">
+              <h3>Components</h3>
+            </div>
             <div
               className="components-list-card"
               onClick={() => this.props.onClick("cpu")}
@@ -47,7 +47,11 @@ export default class ComponentList extends Component {
               {this.props.list.mouse.supplier}
             </div>
           </div>
-        ) : null}
+        ) : (
+          <div className="center-content">
+            <Empty description={<span>Please select a result type</span>} />
+          </div>
+        )}
       </div>
     );
   }

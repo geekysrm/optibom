@@ -51,7 +51,7 @@ export default class Build extends Component {
             action=" "
             onSubmit={this.handleSubmit}
             id="buildForm"
-            autocomplete="off"
+            autoComplete="off"
           >
             <fieldset>
               <h2>
