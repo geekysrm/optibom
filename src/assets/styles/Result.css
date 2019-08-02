@@ -38,7 +38,7 @@
 
 .laptop-image img {
   height: 300px;
-  width: 300px;
+  width: 500px;
 }
 
 .laptop-data {
@@ -46,6 +46,9 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  border-left: 0.3rem solid black;
+  padding-left: 1rem;
+  padding-top: 1rem;
 }
 
 .detail-header {
