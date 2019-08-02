@@ -11,7 +11,7 @@ export default class Build extends Component {
     hdd: "",
     ram: "",
     error: "",
-    loading: false
+    loading: false,
   };
 
   onChange = e => this.setState({ [e.target.name]: e.target.value });
@@ -23,7 +23,7 @@ export default class Build extends Component {
       cpu,
       gpu,
       ram,
-      hdd
+      hdd,
     };
 
     if (name && category) {
@@ -32,7 +32,7 @@ export default class Build extends Component {
       // Send name, category, requiredConfig to API
     } else {
       this.setState({
-        error: "Please enter all required fields"
+        error: "Please enter all required fields",
       });
     }
   };
@@ -41,17 +41,18 @@ export default class Build extends Component {
     const { name, category, cpu, ram, gpu, hdd, error, loading } = this.state;
 
     return (
-      <div className='build-container data-container'>
+      <div className="build-container data-container">
         <div
-          className='container'
-          id='style-2'
+          className="container"
+          id="style-2"
           style={{ overflowY: "auto", marginRight: 0 }}
         >
           <form
-            className='form-horizontal'
-            action=' '
+            className="form-horizontal"
+            action=" "
             onSubmit={this.handleSubmit}
-            id='buildForm'
+            id="buildForm"
+            autocomplete="off"
           >
             <fieldset>
               <h2>
@@ -60,25 +61,25 @@ export default class Build extends Component {
               </h2>
               {error && (
                 <div style={{ paddingRight: "1rem" }}>
-                  <Alert message={error} type='error' className='col-md-8' />
+                  <Alert message={error} type="error" className="col-md-8" />
                 </div>
               )}
 
-              <div className='row mt-2'>
-                <div className='form-group col-md-4'>
-                  <label className='control-label'>
+              <div className="row mt-2">
+                <div className="form-group col-md-4">
+                  <label className="control-label">
                     Laptop Name <span style={{ color: "red" }}>*</span>
                   </label>
-                  <div className='inputGroupContainer'>
-                    <div className='input-group'>
-                      <span className='input-group-addon'>
-                        <i className='glyphicon glyphicon-user' />
+                  <div className="inputGroupContainer">
+                    <div className="input-group">
+                      <span className="input-group-addon">
+                        <i className="glyphicon glyphicon-user" />
                       </span>
                       <input
-                        name='name'
-                        placeholder='Enter laptop name'
-                        className='form-control'
-                        type='text'
+                        name="name"
+                        placeholder="Enter laptop name"
+                        className="form-control"
+                        type="text"
                         value={name}
                         onChange={this.onChange}
                       />
@@ -86,50 +87,50 @@ export default class Build extends Component {
                   </div>
                 </div>
 
-                <div className='col-md-4 form-group'>
-                  <label className='control-label'>
+                <div className="col-md-4 form-group">
+                  <label className="control-label">
                     Category of Laptop <span style={{ color: "red" }}>*</span>
                   </label>
-                  <div className='selectContainer'>
-                    <div className='input-group'>
-                      <span className='input-group-addon'>
-                        <i className='glyphicon glyphicon-list' />
+                  <div className="selectContainer">
+                    <div className="input-group">
+                      <span className="input-group-addon">
+                        <i className="glyphicon glyphicon-list" />
                       </span>
                       <select
-                        name='category'
+                        name="category"
                         value={category}
                         onChange={this.onChange}
-                        className='form-control selectpicker'
+                        className="form-control selectpicker"
                       >
-                        <option value=''>Please select category</option>
-                        <option value='budget'>Budget</option>
-                        <option value='midrange'>Midrange</option>
-                        <option value='gaming'>Gaming</option>
-                        <option value='business'>Business</option>
+                        <option value="">Please select category</option>
+                        <option value="budget">Budget</option>
+                        <option value="midrange">Midrange</option>
+                        <option value="gaming">Gaming</option>
+                        <option value="business">Business</option>
                       </select>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <label className='control-label'>
+              <label className="control-label">
                 Any additional required config
               </label>
 
-              <div className='row'>
-                <div className='col-md-4 form-group'>
-                  <div className='selectContainer'>
-                    <div className='input-group'>
-                      <span className='input-group-addon'>
-                        <i className='glyphicon glyphicon-list' />
+              <div className="row">
+                <div className="col-md-4 form-group">
+                  <div className="selectContainer">
+                    <div className="input-group">
+                      <span className="input-group-addon">
+                        <i className="glyphicon glyphicon-list" />
                       </span>
                       <select
-                        name='cpu'
+                        name="cpu"
                         value={cpu}
                         onChange={this.onChange}
-                        className='form-control selectpicker'
+                        className="form-control selectpicker"
                       >
-                        <option value=''>Select CPU</option>
+                        <option value="">Select CPU</option>
                         <option>i3</option>
                         <option>i5</option>
                         <option>Ryzen</option>
@@ -144,19 +145,19 @@ export default class Build extends Component {
                   </div>
                 </div>
 
-                <div className='col-md-4 form-group'>
-                  <div className='selectContainer'>
-                    <div className='input-group'>
-                      <span className='input-group-addon'>
-                        <i className='glyphicon glyphicon-list' />
+                <div className="col-md-4 form-group">
+                  <div className="selectContainer">
+                    <div className="input-group">
+                      <span className="input-group-addon">
+                        <i className="glyphicon glyphicon-list" />
                       </span>
                       <select
-                        name='gpu'
+                        name="gpu"
                         value={gpu}
                         onChange={this.onChange}
-                        className='form-control selectpicker'
+                        className="form-control selectpicker"
                       >
-                        <option value=''>Select GPU</option>
+                        <option value="">Select GPU</option>
                         <option>GeForce GTX 1080</option>
                         <option>GeForce GTX 1070</option>
                         <option>GeForce GTX 1050Ti</option>
@@ -172,20 +173,20 @@ export default class Build extends Component {
                 </div>
               </div>
 
-              <div className='row'>
-                <div className='col-md-4 form-group'>
-                  <div className='selectContainer'>
-                    <div className='input-group'>
-                      <span className='input-group-addon'>
-                        <i className='glyphicon glyphicon-list' />
+              <div className="row">
+                <div className="col-md-4 form-group">
+                  <div className="selectContainer">
+                    <div className="input-group">
+                      <span className="input-group-addon">
+                        <i className="glyphicon glyphicon-list" />
                       </span>
                       <select
-                        name='ram'
+                        name="ram"
                         value={ram}
                         onChange={this.onChange}
-                        className='form-control selectpicker'
+                        className="form-control selectpicker"
                       >
-                        <option value=''>Select RAM</option>
+                        <option value="">Select RAM</option>
                         <option>2 GB</option>
                         <option>4 GB</option>
                         <option>8 GB</option>
@@ -200,19 +201,19 @@ export default class Build extends Component {
                   </div>
                 </div>
 
-                <div className='col-md-4 form-group'>
-                  <div className='selectContainer'>
-                    <div className='input-group'>
-                      <span className='input-group-addon'>
-                        <i className='glyphicon glyphicon-list' />
+                <div className="col-md-4 form-group">
+                  <div className="selectContainer">
+                    <div className="input-group">
+                      <span className="input-group-addon">
+                        <i className="glyphicon glyphicon-list" />
                       </span>
                       <select
-                        name='hdd'
+                        name="hdd"
                         value={hdd}
                         onChange={this.onChange}
-                        className='form-control selectpicker'
+                        className="form-control selectpicker"
                       >
-                        <option value=''>Select HDD</option>
+                        <option value="">Select HDD</option>
                         <option>2 TB HDD</option>
                         <option>4 TB HDD</option>
                       </select>
@@ -227,17 +228,17 @@ export default class Build extends Component {
                 </div>
               </div>
 
-              <div className='row mt-2'>
+              <div className="row mt-2">
                 <div
-                  className='col-md-4 form-group ml-auto mr-auto'
+                  className="col-md-4 form-group ml-auto mr-auto"
                   style={{ display: "flex", justifyContent: "flex-end" }}
                 >
                   <Button
-                    size='large'
-                    form='buildForm'
-                    key='submit'
-                    htmlType='submit'
-                    type='primary'
+                    size="large"
+                    form="buildForm"
+                    key="submit"
+                    htmlType="submit"
+                    type="primary"
                     loading={loading}
                   >
                     Submit
