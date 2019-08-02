@@ -24,7 +24,13 @@ export default class Build extends Component {
   onChange = async e => {
     this.setState({ [e.target.name]: e.target.value });
     if (e.target.name === "category") {
-      this.setState({ optionsFetched: false });
+      this.setState({
+        optionsFetched: false,
+        cpu: "",
+        gpu: "",
+        hdd: "",
+        ram: "",
+      });
       try {
         const { data } = await axios.get(
           `${BACKEND_URL}/get_dropdown_datas?laptop_type=${e.target.value}`
