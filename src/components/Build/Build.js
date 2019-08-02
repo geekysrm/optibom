@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { Alert, Button } from "antd";
 import axios from "axios";
+import { withRouter } from "react-router-dom";
 import laptop from "../../assets/images/laptop-build.png";
 import BACKEND_URL from "../../constants/BACKEND_URL";
 
-export default class Build extends Component {
+class Build extends Component {
   state = {
     name: "",
     category: "",
@@ -61,6 +62,7 @@ export default class Build extends Component {
         );
         console.log(data.message);
         this.setState({ error: "", buttonLoading: false });
+        this.props.history.push("/result");
       } catch (error) {
         console.error(error);
         this.setState({
@@ -317,3 +319,5 @@ export default class Build extends Component {
     );
   }
 }
+
+export default withRouter(Build);
