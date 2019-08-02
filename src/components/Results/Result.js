@@ -17,7 +17,7 @@ export default class Result extends Component {
       "highest supplier rating",
       "optimal configuration",
     ],
-    lowbom: {
+    lowcost: {
       cpu: {
         supplier: "intel",
         processor: "i5",
@@ -89,7 +89,7 @@ export default class Result extends Component {
         size: "1TB",
       },
     },
-    optimal: {
+    optimum: {
       cpu: {
         supplier: "intel",
         processor: "i5",
@@ -112,11 +112,18 @@ export default class Result extends Component {
         supplier: "sony",
         size: "1TB",
       },
+      selectedCategory: "",
     },
   };
+
   componentDidMount() {
     this.setState({ laptop_id: shortid.generate().toUpperCase() });
   }
+
+  onChange = e => {
+    this.setState({ selectedCategory: e.target.value });
+  };
+
   render() {
     const { name, laptop_id, category, options } = this.state;
 
@@ -127,11 +134,12 @@ export default class Result extends Component {
           id={laptop_id}
           category={category}
           options={options}
+          onChange={this.onChange}
         />
 
         <div className="bom-version-list">Bom Version</div>
         <div className="current-bom">
-          <ComponentList />
+          <ComponentList list={this.state[this.state.selectedCategory]} />
           <ComponentDetails />
         </div>
       </div>
