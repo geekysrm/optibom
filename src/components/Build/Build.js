@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Alert, Button } from "antd";
 import laptop from "../../assets/images/laptop-build.png";
+import BACKEND_URL from "../../constants/BACKEND_URL";
 
 export default class Build extends Component {
   state = {
@@ -30,6 +31,7 @@ export default class Build extends Component {
       this.setState({ error: "", loading: true });
       console.log(name, category, requiredConfig);
       // Send name, category, requiredConfig to API
+      // const laptop_type = category;
     } else {
       this.setState({
         error: "Please enter all required fields",
@@ -38,6 +40,7 @@ export default class Build extends Component {
   };
 
   render() {
+    console.log(BACKEND_URL);
     const { name, category, cpu, ram, gpu, hdd, error, loading } = this.state;
 
     return (
