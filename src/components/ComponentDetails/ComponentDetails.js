@@ -18,56 +18,65 @@ export default class ComponentDetails extends Component {
     ];
     return (
       <div className="component-details style-2">
-        {/* <Empty description={<span>Please select an item</span>} /> */}
-        <List
-          itemLayout="vertical"
-          size="large"
-          dataSource={listData}
-          renderItem={item => (
-            <List.Item
-              key={item.title}
-              extra={
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                  }}
-                >
+        {this.props.detail ? (
+          <List
+            itemLayout="vertical"
+            size="medium"
+            dataSource={listData}
+            style={{ paddingTop: 0 }}
+            renderItem={item => (
+              <List.Item
+                key={item.title}
+                extra={
                   <div
-                    style={{ height: "200px", width: "200px", display: "flex" }}
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
                   >
-                    <img
+                    <div
                       style={{
-                        width: "100%",
-                        height: "auto",
-                        objectFit: "contain",
+                        height: "200px",
+                        width: "200px",
+                        display: "flex",
                       }}
-                      alt="logo"
-                      src={item.image}
-                    />
+                    >
+                      <img
+                        style={{
+                          width: "100%",
+                          height: "auto",
+                          objectFit: "contain",
+                        }}
+                        alt="logo"
+                        src={item.image}
+                      />
+                    </div>
+                    <b style={{ fontSize: "20px" }}>Intel</b>
                   </div>
-                  <b style={{ fontSize: "20px" }}>Intel</b>
-                </div>
-              }
-            >
-              <List.Item.Meta
-                title={
-                  <b style={{ color: "#585158", marginLeft: "50px" }}>
-                    {item.title}
-                  </b>
                 }
-              />
-              <div style={{ color: "#585158", marginLeft: "50px" }}>
-                <h3>$ {item.cost} </h3>
-                <h5>
-                  CPR: <span>{item.cpr}</span>{" "}
-                </h5>
-                <h5>SPR: {item.spr} </h5>
-              </div>
-            </List.Item>
-          )}
-        />
+              >
+                <List.Item.Meta
+                  title={
+                    <b style={{ color: "#585158", marginLeft: "50px" }}>
+                      {item.title}
+                    </b>
+                  }
+                />
+                <div style={{ color: "#585158", marginLeft: "50px" }}>
+                  <h3>$ {item.cost} </h3>
+                  <h5>
+                    CPR: <span>{item.cpr}</span>{" "}
+                  </h5>
+                  <h5>SPR: {item.spr} </h5>
+                </div>
+              </List.Item>
+            )}
+          />
+        ) : (
+          <Empty description={<span>Please select an item</span>} />
+        )}
+        {/*  */}
       </div>
     );
   }

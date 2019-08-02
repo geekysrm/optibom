@@ -114,6 +114,8 @@ export default class Result extends Component {
       },
       selectedCategory: "",
     },
+    selectedCategory: "",
+    selectedItem: "",
   };
 
   componentDidMount() {
@@ -121,7 +123,13 @@ export default class Result extends Component {
   }
 
   onChange = e => {
-    this.setState({ selectedCategory: e.target.value });
+    this.setState({ selectedCategory: e.target.value, selectedItem: "" });
+  };
+
+  onClick = component => {
+    this.setState({
+      selectedItem: component,
+    });
   };
 
   render() {
@@ -139,8 +147,19 @@ export default class Result extends Component {
 
         <div className="bom-version-list">Bom Version</div>
         <div className="current-bom">
-          <ComponentList list={this.state[this.state.selectedCategory]} />
-          <ComponentDetails />
+          <ComponentList
+            list={this.state[this.state.selectedCategory]}
+            onClick={this.onClick}
+          />
+          <ComponentDetails
+            detail={
+              this.state.selectedItem
+                ? this.state[this.state.selectedCategory][
+                    this.state.selectedItem
+                  ]
+                : null
+            }
+          />
         </div>
       </div>
     );
