@@ -25,7 +25,7 @@ export default class Build extends Component {
     if (e.target.name === "category") {
       try {
         const res = await axios.get(
-          `${BACKEND_URL}/get_dropdown_datas?laptop_type=${e.target.value}/`
+          `${BACKEND_URL}/get_dropdown_datas?laptop_type=${e.target.value}`
         );
         console.log(res.data);
         // set the options state
