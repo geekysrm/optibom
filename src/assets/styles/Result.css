@@ -22,12 +22,11 @@
 
 .components-list {
   width: 50%;
-  background: black;
+  border-right: 0.3rem solid black;
 }
 
 .component-details {
   width: 50%;
-  background: #4a00e0;
   border-radius: 0 0 1rem 0;
 }
 

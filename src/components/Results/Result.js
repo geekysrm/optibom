@@ -3,6 +3,8 @@ import shortid from "shortid";
 
 import "../../assets/styles/Result.css";
 import LaptopDetails from "../LaptopDetails.js/LaptopDetails";
+import ComponentList from "../ComponentList/ComponentList";
+import ComponentDetails from "../ComponentDetails/ComponentDetails";
 
 export default class Result extends Component {
   state = {
@@ -129,8 +131,12 @@ export default class Result extends Component {
 
         <div className="bom-version-list">Bom Version</div>
         <div className="current-bom">
-          <div className="components-list">Component List</div>
-          <div className="component-details">Component Details</div>
+          <div className="components-list">
+            <ComponentList />
+          </div>
+          <div className="component-details">
+            <ComponentDetails />
+          </div>
         </div>
       </div>
     );
