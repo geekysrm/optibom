@@ -7,7 +7,7 @@ export default class ComponentDetails extends Component {
   render() {
     const listData = [
       {
-        title: "Processor: i3",
+        title: "PROCESSOR: i3",
         description:
           "Ant Design, a design language for background applications, is refined by Ant UED Team.",
         cost: 10,
@@ -27,17 +27,44 @@ export default class ComponentDetails extends Component {
             <List.Item
               key={item.title}
               extra={
-                <>
-                  <img width={272} alt="logo" src={item.image} />
-                  <br />
-                  <b>Intel</b>
-                </>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    style={{ height: "200px", width: "200px", display: "flex" }}
+                  >
+                    <img
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        objectFit: "contain",
+                      }}
+                      alt="logo"
+                      src={item.image}
+                    />
+                  </div>
+                  <b style={{ fontSize: "20px" }}>Intel</b>
+                </div>
               }
             >
-              <List.Item.Meta title={<span>{item.title}</span>} />
-              <h3>$ {item.cost} </h3> <br />
-              <h5>CPR: {item.cpr} </h5> <br />
-              <h5>SPR: {item.spr} </h5> <br />
+              <List.Item.Meta
+                title={
+                  <b style={{ color: "#585158", marginLeft: "50px" }}>
+                    {item.title}
+                  </b>
+                }
+              />
+              <div style={{ color: "#585158", marginLeft: "50px" }}>
+                <h3>$ {item.cost} </h3>
+                <h5>
+                  CPR: <span>{item.cpr}</span>{" "}
+                </h5>
+                <h5>SPR: {item.spr} </h5>
+              </div>
             </List.Item>
           )}
         />
