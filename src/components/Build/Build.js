@@ -43,8 +43,7 @@ export default class Build extends Component {
     return (
       <div className="build-container data-container">
         <div
-          className="container"
-          id="style-2"
+          className="container style-2"
           style={{ overflowY: "auto", marginRight: 0 }}
         >
           <form

@@ -13,12 +13,12 @@ function App() {
   const { Header, Footer, Sider, Content } = Layout;
   return (
     <Router>
-      <Layout className='layout'>
+      <Layout className="layout">
         <Navbar />
-        <Content className='layout-container' id='style-2'>
-          <Route exact path='/' component={Landing} />
-          <Route exact path='/build' component={Build} />
-          <Route exact path='/result' component={Result} />
+        <Content className="layout-container style-2">
+          <Route exact path="/" component={Landing} />
+          <Route exact path="/build" component={Build} />
+          <Route exact path="/result" component={Result} />
         </Content>
       </Layout>
     </Router>

@@ -131,12 +131,8 @@ export default class Result extends Component {
 
         <div className="bom-version-list">Bom Version</div>
         <div className="current-bom">
-          <div className="components-list">
-            <ComponentList />
-          </div>
-          <div className="component-details">
-            <ComponentDetails />
-          </div>
+          <ComponentList />
+          <ComponentDetails />
         </div>
       </div>
     );
