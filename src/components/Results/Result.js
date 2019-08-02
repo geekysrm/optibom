@@ -1,121 +1,125 @@
 import React, { Component } from "react";
-import "../../assets/styles/Result.css";
+import shortid from "shortid";
 
+import "../../assets/styles/Result.css";
 import LaptopDetails from "../LaptopDetails.js/LaptopDetails";
 
 export default class Result extends Component {
   state = {
     name: "Dell Pavillion",
-    laptop_id: 1234,
+    laptop_id: "",
     category: "gaming",
     options: [
       "lowest cost",
       "highest component rating",
       "highest supplier rating",
-      "optimal configuration"
+      "optimal configuration",
     ],
     lowbom: {
       cpu: {
         supplier: "intel",
-        processor: "i5"
+        processor: "i5",
       },
       ram: {
         supplier: "kingston",
-        size: "8gb"
+        size: "8gb",
       },
       keyboard: {
-        supplier: "dell"
+        supplier: "dell",
       },
       mouse: {
-        supplier: "apple"
+        supplier: "apple",
       },
       gpu: {
         supplier: "nvidia",
-        name: "gtx 1080"
+        name: "gtx 1080",
       },
       hdd: {
         supplier: "sony",
-        size: "1TB"
-      }
+        size: "1TB",
+      },
     },
     highspr: {
       cpu: {
         supplier: "intel",
-        processor: "i5"
+        processor: "i5",
       },
       ram: {
         supplier: "kingston",
-        size: "8gb"
+        size: "8gb",
       },
       keyboard: {
-        supplier: "dell"
+        supplier: "dell",
       },
       mouse: {
-        supplier: "apple"
+        supplier: "apple",
       },
       gpu: {
         supplier: "nvidia",
-        name: "gtx 1080"
+        name: "gtx 1080",
       },
       hdd: {
         supplier: "sony",
-        size: "1TB"
-      }
+        size: "1TB",
+      },
     },
     highcpr: {
       cpu: {
         supplier: "intel",
-        processor: "i5"
+        processor: "i5",
       },
       ram: {
         supplier: "kingston",
-        size: "8gb"
+        size: "8gb",
       },
       keyboard: {
-        supplier: "dell"
+        supplier: "dell",
       },
       mouse: {
-        supplier: "apple"
+        supplier: "apple",
       },
       gpu: {
         supplier: "nvidia",
-        name: "gtx 1080"
+        name: "gtx 1080",
       },
       hdd: {
         supplier: "sony",
-        size: "1TB"
-      }
+        size: "1TB",
+      },
     },
     optimal: {
       cpu: {
         supplier: "intel",
-        processor: "i5"
+        processor: "i5",
       },
       ram: {
         supplier: "kingston",
-        size: "8gb"
+        size: "8gb",
       },
       keyboard: {
-        supplier: "dell"
+        supplier: "dell",
       },
       mouse: {
-        supplier: "apple"
+        supplier: "apple",
       },
       gpu: {
         supplier: "nvidia",
-        name: "gtx 1080"
+        name: "gtx 1080",
       },
       hdd: {
         supplier: "sony",
-        size: "1TB"
-      }
-    }
+        size: "1TB",
+      },
+    },
   };
+  componentDidMount() {
+    this.setState({ laptop_id: shortid.generate().toUpperCase() });
+  }
   render() {
     const { name, laptop_id, category, options } = this.state;
 
     return (
-      <div className='result-container data-container'>
+      <div className="result-container data-container">
         <LaptopDetails
           name={name}
           id={laptop_id}
@@ -123,10 +127,10 @@ export default class Result extends Component {
           options={options}
         />
 
-        <div className='bom-version-list'>Bom Version</div>
-        <div className='current-bom'>
-          <div className='components-list'>Component List</div>
-          <div className='component-details'>Component Details</div>
+        <div className="bom-version-list">Bom Version</div>
+        <div className="current-bom">
+          <div className="components-list">Component List</div>
+          <div className="component-details">Component Details</div>
         </div>
       </div>
     );
