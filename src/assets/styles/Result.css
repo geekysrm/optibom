@@ -89,7 +89,16 @@
 }
 
 .components-list-card {
-  padding: 0.2rem;
-  border: 0.1px solid black;
+  padding: 1rem;
   margin-bottom: 0.5rem;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.components-list-card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+.components-list-card:focus {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
 }
