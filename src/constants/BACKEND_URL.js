@@ -1,1 +1,1 @@
-export default "https://backend-optibom.herokuapp.com/backend/";
+export default "https://backend-optibom.herokuapp.com/backend";

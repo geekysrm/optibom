@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Alert, Button } from "antd";
+import axios from "axios";
 import laptop from "../../assets/images/laptop-build.png";
 import BACKEND_URL from "../../constants/BACKEND_URL";
 
@@ -13,9 +14,27 @@ export default class Build extends Component {
     ram: "",
     error: "",
     loading: false,
+    cpuOptions: [],
+    gpuOptions: [],
+    ramOptions: [],
+    hddOptions: [],
   };
 
-  onChange = e => this.setState({ [e.target.name]: e.target.value });
+  onChange = async e => {
+    this.setState({ [e.target.name]: e.target.value });
+    if (e.target.name === "category") {
+      try {
+        const res = await axios.get(
+          `${BACKEND_URL}/get_dropdown_datas?laptop_type=${e.target.value}/`
+        );
+        console.log(res.data);
+        // set the options state
+        // this.setState({})
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  };
 
   handleSubmit = e => {
     const { name, category, cpu, ram, gpu, hdd } = this.state;
