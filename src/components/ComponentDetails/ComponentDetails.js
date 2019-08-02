@@ -17,13 +17,17 @@ export default class ComponentDetails extends Component {
       },
     ];
     return (
-      <div className="component-details style-2">
+      <div className="component-details style-2" style={{ paddingTop: "1rem" }}>
         {this.props.detail ? (
           <List
             itemLayout="vertical"
             size="medium"
             dataSource={listData}
-            style={{ paddingTop: 0 }}
+            style={{
+              paddingTop: 1,
+              boxShadow: "0 0 15px rgba(0, 0, 0, 0.5)",
+              height: "100%",
+            }}
             renderItem={item => (
               <List.Item
                 key={item.title}
