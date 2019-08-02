@@ -4,15 +4,21 @@ import { Empty, List, Avatar, Icon } from "antd";
 import CompanyImage from "../../assets/images/companies/intel.png";
 
 export default class ComponentDetails extends Component {
+  state = {
+    cost: "",
+    cpr: "",
+    spr: "",
+  };
+
   render() {
     const listData = [
       {
         title: "PROCESSOR: i3",
         description:
           "Ant Design, a design language for background applications, is refined by Ant UED Team.",
-        cost: 10,
-        spr: 20,
-        cpr: 10,
+        cost: "10",
+        spr: "20",
+        cpr: "10",
         image: CompanyImage,
       },
     ];
@@ -64,7 +70,7 @@ export default class ComponentDetails extends Component {
                   }
                 />
                 <div style={{ color: "#585158", marginLeft: "50px" }}>
-                  <h3>$ {item.cost} </h3>
+                  <h5>Cost: $ {item.cost} </h5>
                   <h5>
                     CPR: <span>{item.cpr}</span>{" "}
                   </h5>
@@ -78,7 +84,6 @@ export default class ComponentDetails extends Component {
             <Empty description={<span>Please select an item</span>} />
           </div>
         )}
-        {/*  */}
       </div>
     );
   }
