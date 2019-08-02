@@ -20,7 +20,9 @@ export default class LaptopDetails extends Component {
           </div>
 
           <div className="laptop-category">
-            <p className="lead">Category: {category}</p>
+            <p className="lead" style={{ textTransform: "capitalize" }}>
+              Category: {category}
+            </p>
           </div>
 
           <div className="form-group detail-dropdown">

@@ -1,4 +1,5 @@
 import axios from "axios";
+import shortid from "shortid";
 
 import { GET_BOM } from "./types";
 import BACKEND_URL from "../constants/BACKEND_URL";
@@ -15,10 +16,6 @@ export const getBom = (
     const { data } = await axios.get(
       `${BACKEND_URL}/get_dataframe?laptop_type=${category}&cpu=${cpu}&gpu=${gpu}&hdd=${hdd}&ram=${ram}`
     );
-    console.log("from action", data.message);
-
-    // this.setState({ error: "", buttonLoading: false });
-    // this.props.history.push("/result");
     var lowCostBom = data.message.df_cost;
     var lowCostBomAvgCpr = data.message.df_cost_cpr;
     var lowCostBomAvgSpr = data.message.df_cost_spr;
@@ -54,13 +51,11 @@ export const getBom = (
       optimizedBomAvgSpr,
       optimizedBomTotalCost,
       name,
+      id: shortid.generate().toUpperCase(),
+      category,
     };
   } catch (error) {
     console.error(error);
-    // this.setState({
-    //   error: "Some server error occured!",
-    //   buttonLoading: false,
-    // });
   }
 
   dispatch({

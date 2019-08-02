@@ -2,6 +2,8 @@ import { GET_BOM } from "../actions/types";
 
 const initialState = {
   name: "",
+  id: "",
+  category: "",
   lowCostBom: [],
   lowCostBomAvgCpr: null,
   lowCostBomAvgSpr: null,
@@ -23,7 +25,6 @@ const initialState = {
 export default function(state = initialState, { type, payload }) {
   switch (type) {
     case GET_BOM:
-      console.log(payload);
       const {
         lowCostBom,
         lowCostBomAvgCpr,
@@ -42,10 +43,14 @@ export default function(state = initialState, { type, payload }) {
         optimizedBomAvgSpr,
         optimizedBomTotalCost,
         name,
+        id,
+        category,
       } = payload;
       return {
         ...state,
         name,
+        id,
+        category,
         lowCostBom,
         lowCostBomAvgCpr,
         lowCostBomAvgSpr,

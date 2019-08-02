@@ -39,7 +39,6 @@ class Build extends Component {
         const { data } = await axios.get(
           `${BACKEND_URL}/get_dropdown_datas?laptop_type=${e.target.value}`
         );
-        console.log(data.message);
         this.setState({
           cpuOptions: data.message.cpu,
           gpuOptions: data.message.gpu,
@@ -60,6 +59,7 @@ class Build extends Component {
       this.setState({ buttonLoading: true });
       await this.props.getBom(category, cpu, gpu, hdd, ram, name);
       this.setState({ error: "", buttonLoading: false });
+      this.props.history.push("/result");
     } else {
       this.setState({
         error: "Please enter all required fields",
@@ -310,7 +310,6 @@ class Build extends Component {
   }
 }
 
-// export default withRouter(Build);
 export default connect(
   null,
   { getBom }

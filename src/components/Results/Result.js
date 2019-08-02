@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import shortid from "shortid";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import "../../assets/styles/Result.css";
 import LaptopDetails from "../LaptopDetails.js/LaptopDetails";
 import ComponentList from "../ComponentList/ComponentList";
 import ComponentDetails from "../ComponentDetails/ComponentDetails";
-
-export default class Result extends Component {
+class Result extends Component {
   state = {
     name: "Dell Pavillion",
     laptop_id: "",
@@ -119,7 +119,9 @@ export default class Result extends Component {
   };
 
   componentDidMount() {
-    this.setState({ laptop_id: shortid.generate().toUpperCase() });
+    if (!this.props.bom.lowCostBomAvgCpr) {
+      this.props.history.push("/build");
+    }
   }
 
   onChange = e => {
@@ -133,13 +135,14 @@ export default class Result extends Component {
   };
 
   render() {
-    const { name, laptop_id, category, options } = this.state;
+    const { options } = this.state;
+    const { name, id, category } = this.props.bom;
 
     return (
       <div className="result-container data-container">
         <LaptopDetails
           name={name}
-          id={laptop_id}
+          id={id}
           category={category}
           options={options}
           onChange={this.onChange}
@@ -165,3 +168,14 @@ export default class Result extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    bom: state.bom,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  null
+)(withRouter(Result));
