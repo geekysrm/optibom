@@ -141,3 +141,7 @@ body::-webkit-scrollbar-thumb {
 .landing-btn a:hover {
   color: white;
 }
+
+a:hover {
+  color: white;
+}

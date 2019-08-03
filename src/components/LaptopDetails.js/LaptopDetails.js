@@ -48,7 +48,7 @@ export default class LaptopDetails extends Component {
                         className="form-control selectpicker"
                         onChange={onChange}
                       >
-                        <option value=" ">Please select result type</option>
+                        <option value="">Please select result type</option>
                         <option value="lowCostBom">Low Cost</option>
                         <option value="highSprBom">Highest SPR</option>
                         <option value="highCprBom">Highest CPR</option>

@@ -56,7 +56,6 @@ export default class BomTable extends Component {
 
   render() {
     const { list, totalCost, avgCpr, avgSpr } = this.props;
-    console.log(this.props);
     let data = [];
     if (list && list.length) {
       data = list.map((row, index) => {

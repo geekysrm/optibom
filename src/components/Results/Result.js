@@ -21,7 +21,6 @@ class Result extends Component {
   };
 
   handleXlsDownload = () => {
-    console.log("download xls clicked");
     const bomData = this.props.bom[this.state.selectedCategory];
     let data = [];
     if (bomData && bomData.length) {

@@ -9,8 +9,6 @@ export default class ComponentDetails extends Component {
   };
 
   render() {
-    console.log(this.props.detail && this.props.list);
-
     if (this.props.detail && this.props.list)
       return (
         <div className="row">
