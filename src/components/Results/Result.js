@@ -172,9 +172,11 @@ class Result extends Component {
             }
           />
         </div>
-        <Button type="primary" onClick={() => this.setModal2Visible(true)}>
-          View
-        </Button>
+        {this.state.selectedCategory ? (
+          <Button type="primary" onClick={() => this.setModal2Visible(true)}>
+            View
+          </Button>
+        ) : null}
         <BomTable
           setModal2Visible={this.setModal2Visible}
           modal2Visible={this.state.modal2Visible}
