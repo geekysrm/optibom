@@ -85,7 +85,7 @@ class Build extends Component {
     } = this.state;
 
     return (
-      <div className="build-container data-container">
+      <div className="build-container data-container h-100">
         <div
           className="container style-2"
           style={{ overflowY: "auto", marginRight: 0 }}

@@ -1,48 +1,6 @@
-/* Results Page */
-
-.result-container {
-  display: flex;
-  flex-direction: column;
-}
-
-.current-bom {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  height: 100%;
-  width: 100%;
-}
-
-.bom-version-list {
-  width: 100%;
-  padding: 0.5rem;
-  margin: 0.3rem 0 0.3rem 0;
-  background: black;
-}
-
-.components-list {
-  width: 55%;
-  display: flex;
-  flex-direction: column;
-  overflow-y: auto;
-  padding: 1rem;
-  padding-top: 0;
-}
-
-.component-details {
-  width: 45%;
-  border-radius: 0 0 1rem 0;
-  padding: 1rem;
-  overflow-y: auto;
-  padding-top: 0;
-}
-
-/* Laptop Details */
-
 .laptop-details {
   width: 100%;
-  display: flex;
-  flex-direction: row;
+  outline: thick double #007db8;
 }
 
 .laptop-image img {
@@ -55,69 +13,44 @@
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  outline: thick double #8e2de2;
   margin: 1rem;
-}
-
-.laptop-data {
-  margin-left: 1rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding-left: 1rem;
-  padding-top: 1rem;
-}
-
-.detail-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  font-family: "Catamaran", sans-serif;
 }
 
 .laptop-name {
   font-size: 3rem;
   font-weight: 900;
   text-transform: uppercase;
+  font-family: "Catamaran", sans-serif;
 }
 
-.laptop-category {
-  font-size: 1.2rem;
-  font-weight: 500;
-  text-transform: capitalize;
-  background: #8e2de2;
-  border-radius: 2000px;
+.laptop-id {
+  font-weight: bold;
+  color: #867b7b;
+}
+
+.center-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  justify-self: flex-end;
-  color: #fff;
-  width: 150px;
-  margin: auto 0;
+  height: 100%;
 }
 
-.detail-dropdown {
-  display: flex;
-  align-items: center;
+/* Component List  */
+
+.components-list {
+  /* overflow-y: auto; */
+  padding: 1rem;
+  padding-top: 0;
 }
 
-/* Component List */
 .components-list-header {
+  display: table-row;
   text-align: center;
 }
 
 .component-list-content {
-  display: flex;
+  overflow: overlay;
   flex-direction: column;
-}
-
-.current-bom {
-  overflow-y: auto;
-}
-
-.overflowy {
-  overflow-y: auto;
 }
 
 .components-list-card {
@@ -133,21 +66,4 @@
 
 .components-list-card:focus {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
-}
-
-.center-content {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.laptop-id {
-  font-weight: bold;
-  color: #867b7b;
-}
-
-.laptop-category-2 {
-  text-transform: capitalize;
-  font-size: 20px;
 }

@@ -6,7 +6,7 @@ import { withRouter } from "react-router-dom";
 class ComponentList extends Component {
   render() {
     return (
-      <div className="components-list style-2 overflowy">
+      <div className="components-list w-100">
         {this.props.list ? (
           <div className="components-list-content style-2">
             <div className="components-list-header">
