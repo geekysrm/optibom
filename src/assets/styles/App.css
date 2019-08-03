@@ -73,6 +73,10 @@ body::-webkit-scrollbar-thumb {
   color: white;
 }
 
+.navbar-brand:hover {
+  color: white;
+}
+
 .link {
   height: 100%;
   display: flex;
@@ -139,9 +143,5 @@ body::-webkit-scrollbar-thumb {
 }
 
 .landing-btn a:hover {
-  color: white;
-}
-
-a:hover {
   color: white;
 }

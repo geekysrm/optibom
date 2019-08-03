@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { NavLink, Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
   render() {
     return (
       <nav className="navbar fixed-top navbar-expand-sm p-0">
@@ -20,7 +21,10 @@ export default class Navbar extends Component {
               HOME
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li
+            className="nav-item"
+            style={this.props.bom.name ? null : { marginRight: "1.1em" }}
+          >
             <NavLink
               exact
               to="/build"
@@ -30,18 +34,31 @@ export default class Navbar extends Component {
               BUILD
             </NavLink>
           </li>
-          <li className="nav-item" style={{ marginRight: "1.1em" }}>
-            <NavLink
-              exact
-              to="/result"
-              className="nav-link link"
-              activeClassName="link link-selected active"
-            >
-              RESULT
-            </NavLink>
-          </li>
+          {this.props.bom.name ? (
+            <li className="nav-item" style={{ marginRight: "1.1em" }}>
+              <NavLink
+                exact
+                to="/result"
+                className="nav-link link"
+                activeClassName="link link-selected active"
+              >
+                RESULT
+              </NavLink>
+            </li>
+          ) : null}
         </ul>
       </nav>
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    bom: state.bom,
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  {}
+)(Navbar);
