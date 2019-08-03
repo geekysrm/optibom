@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import { Empty, List, Avatar, Icon } from "antd";
-
-import intel from "../../assets/images/companies/intel.png";
-import amd from "../../assets/images/companies/amd.png";
-import amkette from "../../assets/images/companies/amkette.png";
-import redgear from "../../assets/images/companies/redgear.png";
-import seagate from "../../assets/images/companies/seagate.png";
-import zebronics from "../../assets/images/companies/zebronics.png";
+import { Empty } from "antd";
 
 export default class ComponentDetails extends Component {
   state = {
