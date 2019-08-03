@@ -10,8 +10,8 @@ import { getBom } from "../../actions/bomActions";
 
 class Build extends Component {
   state = {
-    name: "",
-    category: "",
+    name: this.props.bom.name || "",
+    category: this.props.bom.category || "",
     cpu: "",
     gpu: "",
     hdd: "",
@@ -24,6 +24,25 @@ class Build extends Component {
     hddOptions: [],
     optionsFetched: false,
   };
+
+  async componentDidMount() {
+    if (this.state.category) {
+      try {
+        const { data } = await axios.get(
+          `${BACKEND_URL}/get_dropdown_datas?laptop_type=${this.state.category}`
+        );
+        this.setState({
+          cpuOptions: data.message.cpu,
+          gpuOptions: data.message.gpu,
+          hddOptions: data.message.hdd,
+          ramOptions: data.message.ram,
+          optionsFetched: true,
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
 
   onChange = async e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -310,7 +329,13 @@ class Build extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    bom: state.bom,
+  };
+};
+
 export default connect(
-  null,
+  mapStateToProps,
   { getBom }
 )(withRouter(Build));
