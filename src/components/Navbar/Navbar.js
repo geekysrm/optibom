@@ -35,16 +35,18 @@ class Navbar extends Component {
             </NavLink>
           </li>
           {this.props.bom.name ? (
-            <li className="nav-item" style={{ marginRight: "1.1em" }}>
-              <NavLink
-                exact
-                to="/result"
-                className="nav-link link"
-                activeClassName="link link-selected active"
-              >
-                RESULT
-              </NavLink>
-            </li>
+            <>
+              <li className="nav-item" style={{ marginRight: "1.1em" }}>
+                <NavLink
+                  exact
+                  to="/result"
+                  className="nav-link link"
+                  activeClassName="link link-selected active"
+                >
+                  RESULT
+                </NavLink>
+              </li>
+            </>
           ) : null}
         </ul>
       </nav>

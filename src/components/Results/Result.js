@@ -159,13 +159,23 @@ class Result extends Component {
         <div className="row py-3 mb-1">
           <div className="col-md-12 d-flex justify-content-center">
             {this.state.selectedCategory ? (
-              <Button
-                type="primary"
-                size="large"
-                onClick={() => this.setModal2Visible(true)}
-              >
-                View BOM
-              </Button>
+              <>
+                <Button
+                  type="primary"
+                  size="large"
+                  onClick={() => this.setModal2Visible(true)}
+                >
+                  View BOM
+                </Button>
+                <Button
+                  type="primary"
+                  size="large"
+                  onClick={() => this.props.history.push("/graphs")}
+                  className="ml-2"
+                >
+                  View Stats
+                </Button>
+              </>
             ) : null}
           </div>
         </div>

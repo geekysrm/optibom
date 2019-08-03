@@ -7,6 +7,7 @@ import Navbar from "./Navbar/Navbar";
 import Landing from "./Landing/Landing";
 import Build from "./Build/Build";
 import Result from "./Results/Result";
+import Graphs from "./Graphs/Graphs";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/" component={Landing} />
         <Route exact path="/build" component={Build} />
         <Route exact path="/result" component={Result} />
+        <Route exact path="/graphs" component={Graphs} />
       </div>
     </Router>
   );
