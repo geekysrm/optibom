@@ -1,38 +1,47 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 export default class Navbar extends Component {
   render() {
     return (
-      <div className='navbar'>
-        <div className='navbar-header'>Mars</div>
-        <div className='navbar-links'>
-          <NavLink
-            exact
-            to='/'
-            className='link'
-            activeClassName='link link-selected'
-          >
-            HOME
-          </NavLink>
-          <NavLink
-            exact
-            to='/build'
-            className='link'
-            activeClassName='link link-selected'
-          >
-            BUILD
-          </NavLink>
-          <NavLink
-            exact
-            to='/result'
-            className='link'
-            activeClassName='link link-selected'
-          >
-            RESULT
-          </NavLink>
-        </div>
-      </div>
+      <nav className="navbar fixed-top navbar-expand-sm p-0">
+        <Link className="navbar-brand ml-3 p-0" to="/">
+          <span className="m-auto">OptiBOM</span>
+        </Link>
+
+        <ul className="navbar-nav ml-auto h-100">
+          <li className="nav-item">
+            <NavLink
+              exact
+              to="/"
+              className="nav-link link"
+              activeClassName="link link-selected active"
+            >
+              HOME
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink
+              exact
+              to="/build"
+              className="nav-link link"
+              activeClassName="link link-selected active"
+            >
+              BUILD
+            </NavLink>
+          </li>
+          <li className="nav-item" style={{ marginRight: "1.1em" }}>
+            <NavLink
+              exact
+              to="/result"
+              className="nav-link link"
+              activeClassName="link link-selected active"
+            >
+              RESULT
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
     );
   }
 }

@@ -13,112 +13,6 @@ import BomTable from "../BomTable/BomTable";
 class Result extends Component {
   state = {
     modal2Visible: false,
-    name: "Dell Pavillion",
-    laptop_id: "",
-    category: "gaming",
-    options: [
-      "lowest cost",
-      "highest component rating",
-      "highest supplier rating",
-      "optimal configuration",
-    ],
-    lowcost: {
-      cpu: {
-        supplier: "intel",
-        processor: "i5",
-      },
-      ram: {
-        supplier: "kingston",
-        size: "8gb",
-      },
-      keyboard: {
-        supplier: "dell",
-      },
-      mouse: {
-        supplier: "apple",
-      },
-      gpu: {
-        supplier: "nvidia",
-        name: "gtx 1080",
-      },
-      hdd: {
-        supplier: "sony",
-        size: "1TB",
-      },
-    },
-    highspr: {
-      cpu: {
-        supplier: "intel",
-        processor: "i5",
-      },
-      ram: {
-        supplier: "kingston",
-        size: "8gb",
-      },
-      keyboard: {
-        supplier: "dell",
-      },
-      mouse: {
-        supplier: "apple",
-      },
-      gpu: {
-        supplier: "nvidia",
-        name: "gtx 1080",
-      },
-      hdd: {
-        supplier: "sony",
-        size: "1TB",
-      },
-    },
-    highcpr: {
-      cpu: {
-        supplier: "intel",
-        processor: "i5",
-      },
-      ram: {
-        supplier: "kingston",
-        size: "8gb",
-      },
-      keyboard: {
-        supplier: "dell",
-      },
-      mouse: {
-        supplier: "apple",
-      },
-      gpu: {
-        supplier: "nvidia",
-        name: "gtx 1080",
-      },
-      hdd: {
-        supplier: "sony",
-        size: "1TB",
-      },
-    },
-    optimum: {
-      cpu: {
-        supplier: "intel",
-        processor: "i5",
-      },
-      ram: {
-        supplier: "kingston",
-        size: "8gb",
-      },
-      keyboard: {
-        supplier: "dell",
-      },
-      mouse: {
-        supplier: "apple",
-      },
-      gpu: {
-        supplier: "nvidia",
-        name: "gtx 1080",
-      },
-      hdd: {
-        supplier: "sony",
-        size: "1TB",
-      },
-      selectedCategory: "",
-    },
     selectedCategory: "",
     selectedItem: null,
   };
@@ -189,37 +83,60 @@ class Result extends Component {
     const { name, id, category } = this.props.bom;
 
     return (
-      <div className="result-container data-container">
-        <LaptopDetails
-          name={name}
-          id={id}
-          category={category}
-          options={options}
-          onChange={this.onChange}
-        />
-
-        <div className="bom-version-list">Bom Version</div>
-        <div className="current-bom">
-          <ComponentList
-            list={this.props.bom[this.state.selectedCategory]}
-            onClick={this.onClick}
-          />
-          <ComponentDetails
-            detail={
-              this.props.bom[this.state.selectedCategory] &&
-              this.props.bom[this.state.selectedCategory].length
-                ? this.props.bom[this.state.selectedCategory][
-                    this.state.selectedItem
-                  ]
-                : null
-            }
-          />
+      <div className="result-container h-100">
+        <div className="row">
+          <div className="col-md-12">
+            <LaptopDetails
+              name={name}
+              id={id}
+              category={category}
+              options={options}
+              onChange={this.onChange}
+            />
+          </div>
         </div>
-        {this.state.selectedCategory ? (
-          <Button type="primary" onClick={() => this.setModal2Visible(true)}>
-            View
-          </Button>
-        ) : null}
+        {/* <div className="row mt-2 w-100">
+          <div className="col-md-12">
+            <div className="bom-version-list w-100">Bom Version</div>
+          </div>
+        </div> */}
+        <div className="row mt-3">
+          <div className="col-md-12">
+            <div className="current-bom row">
+              <div className="col-md-7">
+                <ComponentList
+                  list={this.props.bom[this.state.selectedCategory]}
+                  onClick={this.onClick}
+                />
+              </div>
+              <div className="col-md-5 d-flex align-items-center">
+                <ComponentDetails
+                  detail={
+                    this.props.bom[this.state.selectedCategory] &&
+                    this.props.bom[this.state.selectedCategory].length
+                      ? this.props.bom[this.state.selectedCategory][
+                          this.state.selectedItem
+                        ]
+                      : null
+                  }
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="row py-3 mb-1">
+          <div className="col-md-12 d-flex justify-content-center">
+            {this.state.selectedCategory ? (
+              <Button
+                type="primary"
+                size="large"
+                onClick={() => this.setModal2Visible(true)}
+              >
+                View BOM
+              </Button>
+            ) : null}
+          </div>
+        </div>
         <BomTable
           list={this.props.bom[this.state.selectedCategory]}
           totalCost={this.props.bom[totalCost]}
