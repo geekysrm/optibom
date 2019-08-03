@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { Button } from "antd";
 
 import "../../assets/styles/Result.css";
 import LaptopDetails from "../LaptopDetails.js/LaptopDetails";
 import ComponentList from "../ComponentList/ComponentList";
 import ComponentDetails from "../ComponentDetails/ComponentDetails";
+import BomTable from "../BomTable/BomTable";
 class Result extends Component {
   state = {
+    modal2Visible: false,
     name: "Dell Pavillion",
     laptop_id: "",
     category: "gaming",
@@ -118,6 +121,10 @@ class Result extends Component {
     selectedItem: null,
   };
 
+  setModal2Visible = modal2Visible => {
+    this.setState({ modal2Visible });
+  };
+
   componentDidMount() {
     if (!this.props.bom.lowCostBomAvgCpr) {
       this.props.history.push("/build");
@@ -165,6 +172,13 @@ class Result extends Component {
             }
           />
         </div>
+        <Button type="primary" onClick={() => this.setModal2Visible(true)}>
+          View
+        </Button>
+        <BomTable
+          setModal2Visible={this.setModal2Visible}
+          modal2Visible={this.state.modal2Visible}
+        />
       </div>
     );
   }
