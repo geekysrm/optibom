@@ -51,10 +51,11 @@ export default class BomTable extends Component {
   };
 
   render() {
-    console.log(this.props.list);
+    const { list, totalCost, avgCpr, avgSpr } = this.props;
+    console.log(this.props);
     let data = [];
-    if (this.props.list && this.props.list.length) {
-      data = this.props.list.map((row, index) => {
+    if (list && list.length) {
+      data = list.map((row, index) => {
         return {
           key: index + 1,
           commodity: row.commodity,
@@ -64,6 +65,15 @@ export default class BomTable extends Component {
           spr: row.spr,
           cpr: row.cpr,
         };
+      });
+      data.push({
+        key: 8,
+        commodity: "",
+        component: "",
+        supplier: "",
+        cost: <b>{totalCost}</b>,
+        spr: <b>{avgSpr}</b>,
+        cpr: <b>{avgCpr}</b>,
       });
     }
     return (
@@ -75,6 +85,7 @@ export default class BomTable extends Component {
           visible={this.props.modal2Visible}
           onOk={() => this.props.setModal2Visible(false)}
           onCancel={() => this.props.setModal2Visible(false)}
+          okText="Download XLS"
           // confirmLoading
         >
           <Table columns={columns} dataSource={data} pagination={false} />

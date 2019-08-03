@@ -142,6 +142,27 @@ class Result extends Component {
   };
 
   render() {
+    let totalCost,
+      avgCpr,
+      avgSpr = null;
+    if (this.state.selectedCategory === "lowCostBom") {
+      totalCost = "lowCostBomTotalCost";
+      avgCpr = "lowCostBomAvgCpr";
+      avgSpr = "lowCostBomAvgSpr";
+    } else if (this.state.selectedCategory === "highCprBom") {
+      totalCost = "highCprBomTotalCost";
+      avgCpr = "highCprBomAvgCpr";
+      avgSpr = "highCprBomAvgSpr";
+    } else if (this.state.selectedCategory === "highSprBom") {
+      totalCost = "highSprBomTotalCost";
+      avgCpr = "highSprBomAvgCpr";
+      avgSpr = "highSprBomAvgSpr";
+    } else if (this.state.selectedCategory === "optimizedBom") {
+      totalCost = "optimizedBomTotalCost";
+      avgCpr = "optimizedBomAvgCpr";
+      avgSpr = "optimizedBomAvgSpr";
+    }
+
     const { options } = this.state;
     const { name, id, category } = this.props.bom;
 
@@ -179,6 +200,9 @@ class Result extends Component {
         ) : null}
         <BomTable
           list={this.props.bom[this.state.selectedCategory]}
+          totalCost={this.props.bom[totalCost]}
+          avgCpr={this.props.bom[avgCpr]}
+          avgSpr={this.props.bom[avgSpr]}
           setModal2Visible={this.setModal2Visible}
           modal2Visible={this.state.modal2Visible}
         />
