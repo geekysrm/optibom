@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Button } from "antd";
 import exportFromJSON from "export-from-json";
-import json2xls from "json2xls";
 
 import "../../assets/styles/Result.css";
 import LaptopDetails from "../LaptopDetails.js/LaptopDetails";
@@ -129,22 +128,36 @@ class Result extends Component {
 
   handleXlsDownload = () => {
     console.log("download xls clicked");
-    // const data = [{ foo: "foo" }, { bar: "bar" }];
-    // const fileName = "download";
-    // const exportType = "xls";
+    const data = [
+      {
+        Name: "万历十五年",
+        Author: "黃仁宇",
+        Subject: "History",
+        "Publication Date": 1981,
+      },
+      {
+        Name: "L'Ancien Régime et la Révolution",
+        Author: "Alexis de Tocqueville",
+        Subject: "History",
+        "Publication Date": 1866,
+      },
+      {
+        Name: "A Brief History of Time",
+        Author: "Stephen Hawking",
+        Subject: "Cosmology",
+        "Publication Date": 1988,
+      },
+      {
+        Name: "失楽園",
+        Author: "渡辺淳一",
+        Subject: "Novel",
+        "Publication Date": 1995,
+      },
+    ];
+    const fileName = "bom";
+    const exportType = "xls";
 
-    // exportFromJSON({ data, fileName, exportType });
-
-    var json = {
-      foo: "bar",
-      qux: "moo",
-      poo: 123,
-      stux: new Date(),
-    };
-
-    var xls = json2xls(json);
-
-    fs.writeFileSync("data.xlsx", xls, "binary");
+    exportFromJSON({ data, fileName, exportType });
   };
 
   componentDidMount() {
