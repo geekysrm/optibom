@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Badge } from "antd";
 
 import LaptopImage from "../../assets/images/laptop-result.png";
 
@@ -42,9 +43,15 @@ export default class LaptopDetails extends Component {
             </div>
           </div>
 
-          <div className="laptop-category">
+          {/* <div className="laptop-category">
             <div>{category}</div>
-          </div>
+          </div> */}
+          <Badge
+            status="processing"
+            className="laptop-category-2"
+            text={category}
+            color="#8e2de2"
+          />
         </div>
       </div>
     );

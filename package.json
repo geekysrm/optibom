@@ -18,7 +18,8 @@
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
-    "shortid": "^2.2.14"
+    "shortid": "^2.2.14",
+    "victory": "^32.3.3"
   },
   "scripts": {
     "start": "react-app-rewired start",

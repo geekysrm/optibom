@@ -141,3 +141,13 @@
   align-items: center;
   height: 100%;
 }
+
+.laptop-id {
+  font-weight: bold;
+  color: "#867b7b";
+}
+
+.laptop-category-2 {
+  text-transform: capitalize;
+  font-size: 20px;
+}
