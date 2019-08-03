@@ -14,8 +14,10 @@ const columns = [
   {
     title: "Component",
     dataIndex: "component",
-    // defaultSortOrder: "descend",
-    // sorter: (a, b) => a.age - b.age,
+    // defaultSortOrder: "ascend",
+    // sortOrder: "ascend",
+    // sortDirections: ["descend"],
+    // sorter: (a, b) => a.component - b.component,
   },
   {
     title: "Supplier",
@@ -26,32 +28,20 @@ const columns = [
   {
     title: "Cost (in ₹)",
     dataIndex: "cost",
-    defaultSortOrder: "descend",
-    sorter: (a, b) => a.age - b.age,
+    // defaultSortOrder: "descend",
+    // sorter: (a, b) => a.age - b.age,
   },
   {
     title: "SPR",
     dataIndex: "spr",
-    defaultSortOrder: "descend",
-    sorter: (a, b) => a.age - b.age,
+    // defaultSortOrder: "descend",
+    // sorter: (a, b) => a.age - b.age,
   },
   {
     title: "CPR",
     dataIndex: "cpr",
-    defaultSortOrder: "descend",
-    sorter: (a, b) => a.age - b.age,
-  },
-];
-
-const data = [
-  {
-    key: "1",
-    commodity: "CPU",
-    component: 10004,
-    supplier: "Intel",
-    cost: 45000,
-    spr: 8,
-    cpr: 9,
+    // defaultSortOrder: "descend",
+    // sorter: (a, b) => a.age - b.age,
   },
 ];
 
