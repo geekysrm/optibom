@@ -131,26 +131,28 @@ class Result extends Component {
         </div> */}
         <div className="row mt-3">
           <div className="col-md-12">
-            <div className="current-bom row">
+            <div className="current-bom row d-flex justify-content-center">
               <div className="col-md-7 w-100">
                 <ComponentList
                   list={this.props.bom[this.state.selectedCategory]}
                   onClick={this.onClick}
                 />
               </div>
-              <div className="col-md-5 d-flex align-items-center">
-                <ComponentDetails
-                  list={this.props.bom[this.state.selectedCategory]}
-                  detail={
-                    this.props.bom[this.state.selectedCategory] &&
-                    this.props.bom[this.state.selectedCategory].length
-                      ? this.props.bom[this.state.selectedCategory][
-                          this.state.selectedItem
-                        ]
-                      : null
-                  }
-                />
-              </div>
+              {this.props.bom[this.state.selectedCategory] ? (
+                <div className="col-md-5 d-flex align-items-center">
+                  <ComponentDetails
+                    list={this.props.bom[this.state.selectedCategory]}
+                    detail={
+                      this.props.bom[this.state.selectedCategory] &&
+                      this.props.bom[this.state.selectedCategory].length
+                        ? this.props.bom[this.state.selectedCategory][
+                            this.state.selectedItem
+                          ]
+                        : null
+                    }
+                  />
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

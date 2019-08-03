@@ -9,7 +9,7 @@ export default class ComponentDetails extends Component {
   };
 
   render() {
-    if (this.props.detail && this.props.list)
+    if (this.props.detail)
       return (
         <div className="row">
           <div className="col-md-6">
@@ -101,7 +101,7 @@ export default class ComponentDetails extends Component {
       );
     else if (this.props.list)
       return (
-        <div className="center-content">
+        <div className="center-content w-100">
           <Empty description={<span>Please select an item</span>} />
         </div>
       );

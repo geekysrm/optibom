@@ -57,7 +57,10 @@ class ComponentList extends Component {
           </div>
         ) : (
           <div className="center-content">
-            <Empty description={<span>Please select a result type</span>} />
+            <Empty
+              style={{ marginTop: "110px" }}
+              description={<span>Please select a result type</span>}
+            />
           </div>
         )}
       </div>
