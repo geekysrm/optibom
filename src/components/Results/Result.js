@@ -128,6 +128,20 @@ class Result extends Component {
 
   handleXlsDownload = () => {
     console.log("download xls clicked");
+    const bomData = this.props.bom[this.state.selectedCategory];
+    let data = [];
+    if (bomData && bomData.length) {
+      data = bomData.map((row, index) => {
+        return {
+          commodity: row.commodity,
+          component: row.component,
+          supplier: row.supplier,
+          cost: row.cost,
+          spr: row.spr,
+          cpr: row.cpr,
+        };
+      });
+    }
     const data = [
       {
         Name: "万历十五年",
