@@ -35,33 +35,36 @@ class Result extends Component {
           cpr: row.cpr,
         };
       });
+      let totalCost,
+        avgCpr,
+        avgSpr = null;
+      if (this.state.selectedCategory === "lowCostBom") {
+        totalCost = "lowCostBomTotalCost";
+        avgCpr = "lowCostBomAvgCpr";
+        avgSpr = "lowCostBomAvgSpr";
+      } else if (this.state.selectedCategory === "highCprBom") {
+        totalCost = "highCprBomTotalCost";
+        avgCpr = "highCprBomAvgCpr";
+        avgSpr = "highCprBomAvgSpr";
+      } else if (this.state.selectedCategory === "highSprBom") {
+        totalCost = "highSprBomTotalCost";
+        avgCpr = "highSprBomAvgCpr";
+        avgSpr = "highSprBomAvgSpr";
+      } else if (this.state.selectedCategory === "optimizedBom") {
+        totalCost = "optimizedBomTotalCost";
+        avgCpr = "optimizedBomAvgCpr";
+        avgSpr = "optimizedBomAvgSpr";
+      }
+      data.push({
+        commodity: "",
+        component: "",
+        supplier: "",
+        cost: this.props.bom[totalCost],
+        spr: this.props.bom[avgSpr],
+        cpr: this.props.bom[avgCpr],
+      });
     }
-    const data = [
-      {
-        Name: "万历十五年",
-        Author: "黃仁宇",
-        Subject: "History",
-        "Publication Date": 1981,
-      },
-      {
-        Name: "L'Ancien Régime et la Révolution",
-        Author: "Alexis de Tocqueville",
-        Subject: "History",
-        "Publication Date": 1866,
-      },
-      {
-        Name: "A Brief History of Time",
-        Author: "Stephen Hawking",
-        Subject: "Cosmology",
-        "Publication Date": 1988,
-      },
-      {
-        Name: "失楽園",
-        Author: "渡辺淳一",
-        Subject: "Novel",
-        "Publication Date": 1995,
-      },
-    ];
+
     const fileName = "bom";
     const exportType = "xls";
 

@@ -86,6 +86,7 @@ export default class BomTable extends Component {
           onOk={() => this.props.handleXlsDownload(false)}
           onCancel={() => this.props.setModal2Visible(false)}
           okText="Download XLS"
+          zIndex={1037}
           // confirmLoading
         >
           <Table columns={columns} dataSource={data} pagination={false} />
