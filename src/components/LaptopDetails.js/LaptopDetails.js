@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 
+import LaptopImage from "../../assets/images/laptop-result.png";
+
 export default class LaptopDetails extends Component {
   render() {
     const { name, id, category, options, onChange } = this.props;
     return (
       <div className="laptop-details">
         <div className="laptop-image">
-          <img src="https://azcd.harveynorman.com.au/media/catalog/product/cache/21/image/992x558/9df78eab33525d08d6e5fb8d27136e95/4/b/4bu26pa-hp-pavilion-x360-14-cd0007tu-14-inch-2-in-1-laptop_1.jpg" />
+          <img src={LaptopImage} />
         </div>
 
         <div className="laptop-data">
