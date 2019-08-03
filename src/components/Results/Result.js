@@ -115,7 +115,7 @@ class Result extends Component {
       selectedCategory: "",
     },
     selectedCategory: "",
-    selectedItem: "",
+    selectedItem: null,
   };
 
   componentDidMount() {
@@ -155,7 +155,14 @@ class Result extends Component {
             onClick={this.onClick}
           />
           <ComponentDetails
-            detail={this.props.bom[this.state.selectedCategory]}
+            detail={
+              this.props.bom[this.state.selectedCategory] &&
+              this.props.bom[this.state.selectedCategory].length
+                ? this.props.bom[this.state.selectedCategory][
+                    this.state.selectedItem
+                  ]
+                : null
+            }
           />
         </div>
       </div>

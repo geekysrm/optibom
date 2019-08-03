@@ -14,43 +14,43 @@ class ComponentList extends Component {
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick("cpu")}
+              onClick={() => this.props.onClick(0)}
             >
               {this.props.list[0].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick("gpu")}
+              onClick={() => this.props.onClick(1)}
             >
               {this.props.list[1].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick("hdd")}
+              onClick={() => this.props.onClick(2)}
             >
               {this.props.list[2].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick("ram")}
+              onClick={() => this.props.onClick(6)}
             >
               {this.props.list[6].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick("keyboard")}
+              onClick={() => this.props.onClick(3)}
             >
               {this.props.list[3].supplier} {this.props.list[3].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick("mouse")}
+              onClick={() => this.props.onClick(4)}
             >
               {this.props.list[4].supplier} {this.props.list[4].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick("screen")}
+              onClick={() => this.props.onClick(5)}
             >
               {this.props.list[5].commodity} Res
             </div>

@@ -11,20 +11,14 @@ export default class ComponentDetails extends Component {
   };
 
   render() {
-    const listData = [
-      {
-        title: "PROCESSOR: i3",
-        description:
-          "Ant Design, a design language for background applications, is refined by Ant UED Team.",
-        cost: "10",
-        spr: "20",
-        cpr: "10",
-        image: CompanyImage,
-      },
-    ];
-    return (
-      <div className="component-details style-2" style={{ paddingTop: "1rem" }}>
-        {this.props.detail ? (
+    console.log(this.props.detail);
+    if (this.props.detail)
+      return (
+        <div
+          className="component-details style-2"
+          style={{ paddingTop: "1rem", display: "flex" }}
+        >
+          {/* {this.props.detail ? (
           <List
             itemLayout="vertical"
             size="medium"
@@ -87,8 +81,71 @@ export default class ComponentDetails extends Component {
           <div className="center-content">
             <Empty description={<span>Please select an item</span>} />
           </div>
-        )}
-      </div>
-    );
+        )} */}
+          <div style={{ fontSize: "17px" }}>
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label">Supplier</label>
+              <div className="col-sm-10">
+                <input
+                  style={{ paddingLeft: "70px" }}
+                  type="text"
+                  readOnly
+                  className="form-control-plaintext"
+                  defaultValue="Amazon Basics"
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label">Cost</label>
+              <div className="col-sm-10">
+                <input
+                  style={{ paddingLeft: "70px" }}
+                  type="text"
+                  readOnly
+                  className="form-control-plaintext"
+                  defaultValue="$ 10"
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label">CPR</label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  style={{ paddingLeft: "70px" }}
+                  readOnly
+                  className="form-control-plaintext"
+                  defaultValue="10"
+                />
+              </div>
+            </div>
+            <div className="form-group row">
+              <label className="col-sm-2 col-form-label">SPR</label>
+              <div className="col-sm-10">
+                <input
+                  type="text"
+                  style={{ paddingLeft: "70px" }}
+                  readOnly
+                  className="form-control-plaintext"
+                  defaultValue="15"
+                />
+              </div>
+            </div>
+          </div>
+          <div style={{ width: "200px", height: "200px" }}>
+            <img
+              style={{ width: "200px", height: "200px", objectFit: "contain" }}
+              src={CompanyImage}
+              alt=""
+            />
+          </div>
+        </div>
+      );
+    else
+      return (
+        <div className="center-content">
+          <Empty description={<span>Please select an item</span>} />
+        </div>
+      );
   }
 }
