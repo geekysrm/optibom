@@ -45,6 +45,10 @@ const columns = [
   },
 ];
 
+function splitCamelCaseToString(s) {
+  return s.split(/(?=[A-Z])/).join(" ");
+}
+
 export default class BomTable extends Component {
   state = {
     modal2Visible: false,
@@ -76,11 +80,14 @@ export default class BomTable extends Component {
         cpr: <b>{avgCpr}</b>,
       });
     }
+
     return (
       <div>
         <Modal
           width="695"
-          title="Change me"
+          title={splitCamelCaseToString(
+            this.props.selectedCategory
+          ).toUpperCase()}
           centered
           visible={this.props.modal2Visible}
           onOk={() => this.props.handleXlsDownload(false)}

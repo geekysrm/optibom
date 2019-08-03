@@ -68,6 +68,7 @@ export default class LaptopDetails extends Component {
                   className="laptop-category-2"
                   text={category}
                   color="#8e2de2"
+                  style={{ textTransform: "uppercase" }}
                 />
               </div>
             </div>

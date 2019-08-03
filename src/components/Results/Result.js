@@ -175,6 +175,7 @@ class Result extends Component {
           setModal2Visible={this.setModal2Visible}
           modal2Visible={this.state.modal2Visible}
           handleXlsDownload={this.handleXlsDownload}
+          selectedCategory={this.state.selectedCategory}
         />
       </div>
     );
