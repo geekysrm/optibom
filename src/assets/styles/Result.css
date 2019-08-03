@@ -1,6 +1,7 @@
 .laptop-details {
   width: 100%;
-  outline: thick double #007db8;
+  padding-bottom: 5px;
+  border-bottom: 2px #007db8 solid;
 }
 
 .laptop-image img {

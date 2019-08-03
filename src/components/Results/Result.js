@@ -141,6 +141,7 @@ class Result extends Component {
               </div>
               <div className="col-md-5 d-flex align-items-center">
                 <ComponentDetails
+                  list={this.props.bom[this.state.selectedCategory]}
                   detail={
                     this.props.bom[this.state.selectedCategory] &&
                     this.props.bom[this.state.selectedCategory].length

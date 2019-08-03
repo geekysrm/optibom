@@ -9,73 +9,9 @@ export default class ComponentDetails extends Component {
   };
 
   render() {
-    console.log(this.props.detail);
+    console.log(this.props.detail && this.props.list);
 
-    if (this.props.detail)
-      // return (
-      //   <div
-      //     className="component-details style-2"
-      //     style={{ paddingTop: "1rem", display: "flex" }}
-      //   >
-      //     <div style={{ fontSize: "17px" }}>
-      //       <div className="form-group row">
-      //         <label className="col-sm-2 col-form-label">Supplier</label>
-      //         <div className="col-sm-10">
-      //           <input
-      //             style={{ paddingLeft: "70px" }}
-      //             type="text"
-      //             readOnly
-      //             className="form-control-plaintext"
-      //             value={this.props.detail.supplier || ""}
-      //           />
-      //         </div>
-      //       </div>
-      //       <div className="form-group row">
-      //         <label className="col-sm-2 col-form-label">Cost</label>
-      //         <div className="col-sm-10">
-      //           <input
-      //             style={{ paddingLeft: "70px" }}
-      //             type="text"
-      //             readOnly
-      //             className="form-control-plaintext"
-      //             value={`₹ ${this.props.detail.cost}` || ""}
-      //           />
-      //         </div>
-      //       </div>
-      //       <div className="form-group row">
-      //         <label className="col-sm-2 col-form-label">CPR</label>
-      //         <div className="col-sm-10">
-      //           <input
-      //             type="text"
-      //             style={{ paddingLeft: "70px" }}
-      //             readOnly
-      //             className="form-control-plaintext"
-      //             value={this.props.detail.cpr || ""}
-      //           />
-      //         </div>
-      //       </div>
-      //       <div className="form-group row">
-      //         <label className="col-sm-2 col-form-label">SPR</label>
-      //         <div className="col-sm-10">
-      //           <input
-      //             type="text"
-      //             style={{ paddingLeft: "70px" }}
-      //             readOnly
-      //             className="form-control-plaintext"
-      //             value={this.props.detail.spr || ""}
-      //           />
-      //         </div>
-      //       </div>
-      //     </div>
-      //     <div style={{ width: "200px", height: "200px" }}>
-      //       <img
-      //         style={{ width: "200px", height: "200px", objectFit: "contain" }}
-      //         src={`/images/companies/${this.props.detail.supplier.toLowerCase()}.png`}
-      //         alt=""
-      //       />
-      //     </div>
-      //   </div>
-      // );
+    if (this.props.detail && this.props.list)
       return (
         <div className="row">
           <div className="col-md-6">
@@ -165,11 +101,12 @@ export default class ComponentDetails extends Component {
           </div>
         </div>
       );
-    else
+    else if (this.props.list)
       return (
         <div className="center-content">
           <Empty description={<span>Please select an item</span>} />
         </div>
       );
+    else return null;
   }
 }
