@@ -46,9 +46,17 @@
 }
 
 .laptop-image img {
-  height: 200px;
-  width: 300px;
-  border-radius: 1rem 0 0 0;
+  height: 150px;
+  width: 180px;
+}
+
+.laptop-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  outline: thick double #8e2de2;
+  margin: 1rem;
 }
 
 .laptop-data {
@@ -56,7 +64,6 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-left: 0.3rem solid black;
   padding-left: 1rem;
   padding-top: 1rem;
 }
@@ -66,12 +73,33 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
+  font-family: "Catamaran", sans-serif;
+}
+
+.laptop-name {
+  font-size: 3rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.laptop-category {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  background: #8e2de2;
+  border-radius: 2000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-self: flex-end;
+  color: #fff;
+  width: 150px;
+  margin: auto 0;
 }
 
 .detail-dropdown {
-  margin-top: auto;
   display: flex;
-  justify-content: flex-end;
+  align-items: center;
 }
 
 /* Component List */

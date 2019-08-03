@@ -12,40 +12,38 @@ export default class LaptopDetails extends Component {
         </div>
 
         <div className="laptop-data">
+          <div className="laptop-id">
+            <p>#{id}</p>
+          </div>
           <div className="detail-header">
             <div className="laptop-name">
-              <p className="lead">Laptop Name: {name}</p>
+              <p style={{ marginTop: "auto", marginBottom: "auto" }}>{name}</p>
             </div>
-            <div className="laptop-id">
-              <p className="lead">ID: {id}</p>
+
+            <div className="form-group detail-dropdown">
+              <div className="selectContainer">
+                <div className="input-group">
+                  <span className="input-group-addon">
+                    <i className="glyphicon glyphicon-list" />
+                  </span>
+                  <select
+                    name="state"
+                    className="form-control selectpicker"
+                    onChange={onChange}
+                  >
+                    <option value=" ">Please select result type</option>
+                    <option value="lowCostBom">Low Cost</option>
+                    <option value="highSprBom">Highest SPR</option>
+                    <option value="highCprBom">Highest CPR</option>
+                    <option value="optimizedBom">Optimum Configuration</option>
+                  </select>
+                </div>
+              </div>
             </div>
           </div>
 
           <div className="laptop-category">
-            <p className="lead" style={{ textTransform: "capitalize" }}>
-              Category: {category}
-            </p>
-          </div>
-
-          <div className="form-group detail-dropdown">
-            <div className="selectContainer">
-              <div className="input-group">
-                <span className="input-group-addon">
-                  <i className="glyphicon glyphicon-list" />
-                </span>
-                <select
-                  name="state"
-                  className="form-control selectpicker"
-                  onChange={onChange}
-                >
-                  <option value=" ">Please select result type</option>
-                  <option value="lowCostBom">Low Cost</option>
-                  <option value="highSprBom">Highest SPR</option>
-                  <option value="highCprBom">Highest CPR</option>
-                  <option value="optimizedBom">Optimum Configuration</option>
-                </select>
-              </div>
-            </div>
+            <div>{category}</div>
           </div>
         </div>
       </div>
