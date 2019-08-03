@@ -132,7 +132,7 @@ class Result extends Component {
         <div className="row mt-3">
           <div className="col-md-12">
             <div className="current-bom row">
-              <div className="col-md-7">
+              <div className="col-md-7 w-100">
                 <ComponentList
                   list={this.props.bom[this.state.selectedCategory]}
                   onClick={this.onClick}

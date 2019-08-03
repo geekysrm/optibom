@@ -54,7 +54,6 @@ export const getBom = (
       id: shortid.generate().toUpperCase(),
       category,
     };
-    console.log(payload);
   } catch (error) {
     console.error(error);
   }
