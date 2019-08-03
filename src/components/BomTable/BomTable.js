@@ -83,7 +83,7 @@ export default class BomTable extends Component {
           title="Change me"
           centered
           visible={this.props.modal2Visible}
-          onOk={() => this.props.setModal2Visible(false)}
+          onOk={() => this.props.handleXlsDownload(false)}
           onCancel={() => this.props.setModal2Visible(false)}
           okText="Download XLS"
           // confirmLoading

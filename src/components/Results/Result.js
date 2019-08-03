@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Button } from "antd";
+import exportFromJSON from "export-from-json";
+import json2xls from "json2xls";
 
 import "../../assets/styles/Result.css";
 import LaptopDetails from "../LaptopDetails.js/LaptopDetails";
@@ -125,6 +127,26 @@ class Result extends Component {
     this.setState({ modal2Visible });
   };
 
+  handleXlsDownload = () => {
+    console.log("download xls clicked");
+    // const data = [{ foo: "foo" }, { bar: "bar" }];
+    // const fileName = "download";
+    // const exportType = "xls";
+
+    // exportFromJSON({ data, fileName, exportType });
+
+    var json = {
+      foo: "bar",
+      qux: "moo",
+      poo: 123,
+      stux: new Date(),
+    };
+
+    var xls = json2xls(json);
+
+    fs.writeFileSync("data.xlsx", xls, "binary");
+  };
+
   componentDidMount() {
     if (!this.props.bom.lowCostBomAvgCpr) {
       this.props.history.push("/build");
@@ -205,6 +227,7 @@ class Result extends Component {
           avgSpr={this.props.bom[avgSpr]}
           setModal2Visible={this.setModal2Visible}
           modal2Visible={this.state.modal2Visible}
+          handleXlsDownload={this.handleXlsDownload}
         />
       </div>
     );
