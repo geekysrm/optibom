@@ -178,6 +178,7 @@ class Result extends Component {
           </Button>
         ) : null}
         <BomTable
+          list={this.props.bom[this.state.selectedCategory]}
           setModal2Visible={this.setModal2Visible}
           modal2Visible={this.state.modal2Visible}
         />

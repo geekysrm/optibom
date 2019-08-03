@@ -24,7 +24,7 @@ const columns = [
     // sorter: (a, b) => a.age - b.age,
   },
   {
-    title: "Cost",
+    title: "Cost (in ₹)",
     dataIndex: "cost",
     defaultSortOrder: "descend",
     sorter: (a, b) => a.age - b.age,
@@ -46,66 +46,12 @@ const columns = [
 const data = [
   {
     key: "1",
-    commodity: "John Brown",
-    component: 32,
-    supplier: "New York No. 1 Lake Park",
-    cost: 10,
-    spr: 12,
-    cpr: 13,
-  },
-  {
-    key: "2",
-    commodity: "Jim Green",
-    component: 42,
-    supplier: "London No. 1 Lake Park",
-    cost: 10,
-    spr: 12,
-    cpr: 13,
-  },
-  {
-    key: "3",
-    commodity: "Joe Black",
-    component: 32,
-    supplier: "Sidney No. 1 Lake Park",
-    cost: 10,
-    spr: 12,
-    cpr: 13,
-  },
-  {
-    key: "4",
-    commodity: "Jim Red",
-    component: 32,
-    supplier: "London No. 2 Lake Park",
-    cost: 10,
-    spr: 12,
-    cpr: 13,
-  },
-  {
-    key: "5",
-    commodity: "Jim Red",
-    component: 32,
-    supplier: "London No. 2 Lake Park",
-    cost: 10,
-    spr: 12,
-    cpr: 13,
-  },
-  {
-    key: "6",
-    commodity: "Jim Red",
-    component: 32,
-    supplier: "London No. 2 Lake Park",
-    cost: 10,
-    spr: 12,
-    cpr: 13,
-  },
-  {
-    key: "7",
-    commodity: "Jim Red",
-    component: 32,
-    supplier: "London No. 2 Lake Park",
-    cost: 10,
-    spr: 12,
-    cpr: 13,
+    commodity: "CPU",
+    component: 10004,
+    supplier: "Intel",
+    cost: 45000,
+    spr: 8,
+    cpr: 9,
   },
 ];
 
@@ -115,6 +61,21 @@ export default class BomTable extends Component {
   };
 
   render() {
+    console.log(this.props.list);
+    let data = [];
+    if (this.props.list && this.props.list.length) {
+      data = this.props.list.map((row, index) => {
+        return {
+          key: index + 1,
+          commodity: row.commodity,
+          component: row.component,
+          supplier: row.supplier,
+          cost: row.cost,
+          spr: row.spr,
+          cpr: row.cpr,
+        };
+      });
+    }
     return (
       <div>
         <Modal
@@ -124,6 +85,7 @@ export default class BomTable extends Component {
           visible={this.props.modal2Visible}
           onOk={() => this.props.setModal2Visible(false)}
           onCancel={() => this.props.setModal2Visible(false)}
+          // confirmLoading
         >
           <Table columns={columns} dataSource={data} pagination={false} />
         </Modal>
