@@ -11,6 +11,7 @@ class Graphs extends Component {
   }
 
   render() {
+    window.scrollTo(0, 0);
     return (
       <>
         <div className="row" style={{ marginTop: "75px" }}>
@@ -18,7 +19,7 @@ class Graphs extends Component {
             <BarGraph
               data={[
                 {
-                  x: "Total Cost",
+                  x: "Lowest Cost",
                   y: `${this.props.bom.lowCostBomTotalCost / 1000}K`,
                 },
                 {

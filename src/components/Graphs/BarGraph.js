@@ -22,7 +22,7 @@ class BarGraph extends Component {
           <VictoryChart
             style={{ parent: { maxWidth: "200rem" } }}
             theme={VictoryTheme.material}
-            domainPadding={10}
+            domainPadding={15}
           >
             <VictoryBar
               labels={
