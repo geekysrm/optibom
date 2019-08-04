@@ -1,8 +1,9 @@
 import axios from "axios";
 import shortid from "shortid";
 
-import { GET_BOM } from "./types";
+import { GET_BOM, UPDATE_ITEM } from "./types";
 import BACKEND_URL from "../constants/BACKEND_URL";
+import Item from "antd/lib/list/Item";
 
 export const getBom = (
   category,
@@ -62,4 +63,15 @@ export const getBom = (
     type: GET_BOM,
     payload: payload,
   });
+};
+
+export const updateItem = (category, Item, obj) => {
+  return {
+    type: UPDATE_ITEM,
+    payload: {
+      category,
+      Item,
+      incomingChanges: obj,
+    },
+  };
 };

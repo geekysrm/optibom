@@ -10,6 +10,8 @@ import LaptopDetails from "../LaptopDetails.js/LaptopDetails";
 import ComponentList from "../ComponentList/ComponentList";
 import ComponentDetails from "../ComponentDetails/ComponentDetails";
 import BomTable from "../BomTable/BomTable";
+import { updateItem } from "../../actions/bomActions";
+
 class Result extends Component {
   state = {
     modal2Visible: false,
@@ -73,10 +75,21 @@ class Result extends Component {
     exportFromJSON({ data, fileName, exportType });
   };
 
-  handleComponentEdit = async text => {
+  handleComponentEdit = () => {
     this.setState({
       editState: !this.state.editState,
     });
+  };
+
+  handleComponentSave = async obj => {
+    this.setState({
+      editState: !this.state.editState,
+    });
+    this.props.updateItem(
+      this.state.selectedCategory,
+      this.state.selectedItem,
+      obj
+    );
   };
 
   componentDidMount() {
@@ -100,8 +113,19 @@ class Result extends Component {
     const res = await axios.get(
       `https://backend-optibom.herokuapp.com/backend/get_component_data?component=${name}`
     );
+
+    console.log(res.data.message);
+
+    const result = res.data.message.map(x => {
+      let a = x;
+      a[0] = a[0] + "-" + a[2];
+      return a;
+    });
+
+    console.log(result);
+
     await this.setState({
-      options: res.data.message,
+      options: result,
     });
   };
 
@@ -172,7 +196,9 @@ class Result extends Component {
                     }
                     options={this.state.options}
                     handleComponentEdit={this.handleComponentEdit}
+                    handleComponentSave={this.handleComponentSave}
                     editState={this.state.editState}
+                    selectedItem={this.state.selectedItem}
                   />
                 </div>
               ) : null}
@@ -225,5 +251,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  null
+  { updateItem }
 )(withRouter(Result));

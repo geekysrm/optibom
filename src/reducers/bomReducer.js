@@ -1,4 +1,4 @@
-import { GET_BOM } from "../actions/types";
+import { GET_BOM, UPDATE_ITEM } from "../actions/types";
 
 const initialState = {
   name: "",
@@ -67,6 +67,12 @@ export default function(state = initialState, { type, payload }) {
         optimizedBomAvgCpr,
         optimizedBomAvgSpr,
         optimizedBomTotalCost,
+      };
+
+    case UPDATE_ITEM:
+      console.log(payload);
+      return {
+        ...state,
       };
 
     default:

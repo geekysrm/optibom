@@ -9,6 +9,8 @@ export default class ComponentDetails extends Component {
       cpr: props.detail ? props.detail.cpr.toString() : "",
       spr: props.detail ? props.detail.spr.toString() : "",
       item: props.detail ? props.detail.commodity : "",
+      supplier: props.detail ? props.detail.supplier : "",
+      component: props.detail ? props.detail.component.toString() : "",
     };
   }
 
@@ -28,19 +30,54 @@ export default class ComponentDetails extends Component {
         spr: this.props.detail.spr,
       });
     }
+    if (this.state.supplier === "" && this.props.detail) {
+      this.setState({
+        supplier: this.props.detail.supplier,
+      });
+    }
+    if (this.state.component === "" && this.props.detail) {
+      this.setState({
+        component: this.props.detail.component,
+      });
+    }
+
+    if (
+      this.props.detail &&
+      this.state.supplier !== this.props.detail.supplier &&
+      !this.props.editState
+    ) {
+      this.setState({
+        cost: this.props.detail ? this.props.detail.cost.toString() : "",
+        cpr: this.props.detail ? this.props.detail.cpr.toString() : "",
+        spr: this.props.detail ? this.props.detail.spr.toString() : "",
+        item: this.props.detail ? this.props.detail.commodity : "",
+        supplier: this.props.detail ? this.props.detail.supplier : "",
+        component: this.props.detail
+          ? this.props.detail.component.toString()
+          : "",
+      });
+    }
   }
 
   onChange = e => {
+    console.log(this.props.options);
+    console.log(this.props.selectedItem);
+    console.log(this.state.component);
+    console.log(this.state);
+
     this.setState({ [e.target.name]: e.target.value }, () => {
       this.setState({
         cost: this.props.options
-          .find(item => item[0] === this.state.item)[3]
+          .find(item => item[0].toString() === this.state.item)[3]
           .toString(),
         cpr: this.props.options
-          .find(item => item[0] === this.state.item)[4]
+          .find(item => item[0].toString() === this.state.item)[4]
           .toString(),
         spr: this.props.options
-          .find(item => item[0] === this.state.item)[5]
+          .find(item => item[0].toString() === this.state.item)[5]
+          .toString(),
+        supplier: this.props.options
+          .find(item => item[0].toString() === this.state.item)[2]
           .toString(),
       });
     });
@@ -48,7 +85,6 @@ export default class ComponentDetails extends Component {
 
   render() {
     if (this.props.detail) {
-      console.log(this.props.options);
       return (
         <>
           <div className="row">
@@ -77,17 +113,12 @@ export default class ComponentDetails extends Component {
                           onChange={this.onChange}
                           className="form-control selectpicker"
                         >
-                          <option value={this.props.detail.commodity}>
-                            {this.props.detail.commodity}
-                          </option>
-                          {this.props.options.map((option, index) => {
-                            if (option[0] !== this.props.detail.commodity)
-                              return (
-                                <option key={index} value={option[0]}>
-                                  {option[0]}
-                                </option>
-                              );
-                          })}
+                          <option value="">Select Item</option>
+                          {this.props.options.map((option, index) => (
+                            <option key={index} value={option[0]}>
+                              {option[0]}
+                            </option>
+                          ))}
                         </select>
                       ) : (
                         <input
@@ -115,7 +146,7 @@ export default class ComponentDetails extends Component {
                         type="text"
                         readOnly
                         className="form-control-plaintext"
-                        value={this.props.detail.supplier || ""}
+                        value={this.state.supplier || ""}
                       />
                     </div>
                   </div>
@@ -182,20 +213,41 @@ export default class ComponentDetails extends Component {
                     height: "200px",
                     objectFit: "contain",
                   }}
-                  src={`/images/companies/${this.props.detail.supplier.toLowerCase()}.png`}
+                  src={`/images/companies/${this.state.supplier.toLowerCase()}.png`}
                   alt=""
                 />
               </div>
             </div>
-            <div className="col-md-12 pt-2 d-flex justfy-content-center">
-              <Button
-                type="primary"
-                className="mx-auto"
-                onClick={() => this.props.handleComponentEdit(this.props.type)}
-              >
-                Edit
-              </Button>
-            </div>
+            {!this.props.editState ? (
+              <div className="col-md-12 pt-2 d-flex justfy-content-center">
+                <Button
+                  type="primary"
+                  className="mx-auto"
+                  onClick={() => this.props.handleComponentEdit()}
+                >
+                  Edit
+                </Button>
+              </div>
+            ) : (
+              <div className="col-md-12 pt-2 d-flex justfy-content-center">
+                <Button
+                  type="primary"
+                  className="mx-auto"
+                  onClick={() =>
+                    this.props.handleComponentSave({
+                      commodity: this.state.item,
+                      supplier: this.state.supplier,
+                      cost: this.state.cost,
+                      cpr: this.state.cpr,
+                      spr: this.state.spr,
+                      component: this.state.component,
+                    })
+                  }
+                >
+                  Save
+                </Button>
+              </div>
+            )}
           </div>
         </>
       );
