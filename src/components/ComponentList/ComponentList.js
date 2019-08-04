@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 
 class ComponentList extends Component {
   render() {
+    console.log(this.props.list);
     return (
       <div className="components-list w-100">
         {this.props.list ? (
@@ -14,43 +15,43 @@ class ComponentList extends Component {
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick(0)}
+              onClick={() => this.props.onClick(0, "cpu")}
             >
               {this.props.list[0].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick(1)}
+              onClick={() => this.props.onClick(1, "graphics")}
             >
               {this.props.list[1].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick(2)}
+              onClick={() => this.props.onClick(2, "hard-disk")}
             >
               {this.props.list[2].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick(6)}
+              onClick={() => this.props.onClick(6, "ram")}
             >
               {this.props.list[6].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick(3)}
+              onClick={() => this.props.onClick(3, "keyboard")}
             >
               {this.props.list[3].supplier} {this.props.list[3].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick(4)}
+              onClick={() => this.props.onClick(4, "mouse")}
             >
               {this.props.list[4].supplier} {this.props.list[4].commodity}
             </div>
             <div
               className="components-list-card"
-              onClick={() => this.props.onClick(5)}
+              onClick={() => this.props.onClick(5, "screen")}
             >
               {this.props.list[5].commodity} Res
             </div>

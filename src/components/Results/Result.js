@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { Button } from "antd";
 import exportFromJSON from "export-from-json";
+import axios from "axios";
 
 import "../../assets/styles/Result.css";
 import LaptopDetails from "../LaptopDetails.js/LaptopDetails";
@@ -14,6 +15,8 @@ class Result extends Component {
     modal2Visible: false,
     selectedCategory: "",
     selectedItem: null,
+    editState: false,
+    options: [],
   };
 
   setModal2Visible = modal2Visible => {
@@ -70,6 +73,12 @@ class Result extends Component {
     exportFromJSON({ data, fileName, exportType });
   };
 
+  handleComponentEdit = async text => {
+    this.setState({
+      editState: !this.state.editState,
+    });
+  };
+
   componentDidMount() {
     if (!this.props.bom.lowCostBomAvgCpr) {
       this.props.history.push("/build");
@@ -77,12 +86,22 @@ class Result extends Component {
   }
 
   onChange = e => {
-    this.setState({ selectedCategory: e.target.value, selectedItem: "" });
+    this.setState({
+      selectedCategory: e.target.value,
+      selectedItem: "",
+    });
   };
 
-  onClick = component => {
+  onClick = async (id, name) => {
     this.setState({
-      selectedItem: component,
+      editState: false,
+      selectedItem: id,
+    });
+    const res = await axios.get(
+      `https://backend-optibom.herokuapp.com/backend/get_component_data?component=${name}`
+    );
+    await this.setState({
+      options: res.data.message,
     });
   };
 
@@ -150,6 +169,9 @@ class Result extends Component {
                           ]
                         : null
                     }
+                    options={this.state.options}
+                    handleComponentEdit={this.handleComponentEdit}
+                    editState={this.state.editState}
                   />
                 </div>
               ) : null}
