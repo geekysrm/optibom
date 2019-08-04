@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom";
 
 class ComponentList extends Component {
   render() {
-    console.log(this.props.list);
     return (
       <div className="components-list">
         {this.props.list ? (

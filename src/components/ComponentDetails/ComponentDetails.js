@@ -2,19 +2,53 @@ import React, { Component } from "react";
 import { Empty, Button } from "antd";
 
 export default class ComponentDetails extends Component {
-  state = {
-    cost: "",
-    cpr: "",
-    spr: "",
-    supplier: "",
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      cost: props.detail ? props.detail.cost.toString() : "",
+      cpr: props.detail ? props.detail.cpr.toString() : "",
+      spr: props.detail ? props.detail.spr.toString() : "",
+      item: props.detail ? props.detail.commodity : "",
+    };
+  }
+
+  componentDidUpdate() {
+    if (this.state.cost === "" && this.props.detail) {
+      this.setState({
+        cost: this.props.detail.cost,
+      });
+    }
+    if (this.state.cpr === "" && this.props.detail) {
+      this.setState({
+        cpr: this.props.detail.cpr,
+      });
+    }
+    if (this.state.spr === "" && this.props.detail) {
+      this.setState({
+        spr: this.props.detail.spr,
+      });
+    }
+  }
 
   onChange = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value }, () => {
+      this.setState({
+        cost: this.props.options
+          .find(item => item[0] === this.state.item)[3]
+          .toString(),
+        cpr: this.props.options
+          .find(item => item[0] === this.state.item)[4]
+          .toString(),
+        spr: this.props.options
+          .find(item => item[0] === this.state.item)[5]
+          .toString(),
+      });
+    });
   };
 
   render() {
-    if (this.props.detail)
+    if (this.props.detail) {
+      console.log(this.props.options);
       return (
         <>
           <div className="row">
@@ -27,7 +61,7 @@ export default class ComponentDetails extends Component {
                         className="col-form-label"
                         style={{ fontWeight: "700" }}
                       >
-                        Supplier
+                        Item
                       </label>
                     </div>
                     <div
@@ -38,17 +72,22 @@ export default class ComponentDetails extends Component {
                     >
                       {this.props.editState ? (
                         <select
-                          name="supplier"
-                          value={this.props.detail.supplier}
+                          name="item"
+                          value={this.state.item}
                           onChange={this.onChange}
                           className="form-control selectpicker"
                         >
-                          <option value="">Select Supplier</option>
-                          {this.props.options.map((option, index) => (
-                            <option key={index} value={option[2]}>
-                              {option[2]}
-                            </option>
-                          ))}
+                          <option value={this.props.detail.commodity}>
+                            {this.props.detail.commodity}
+                          </option>
+                          {this.props.options.map((option, index) => {
+                            if (option[0] !== this.props.detail.commodity)
+                              return (
+                                <option key={index} value={option[0]}>
+                                  {option[0]}
+                                </option>
+                              );
+                          })}
                         </select>
                       ) : (
                         <input
@@ -56,9 +95,28 @@ export default class ComponentDetails extends Component {
                           type="text"
                           readOnly
                           className="form-control-plaintext"
-                          value={this.props.detail.supplier || ""}
+                          value={this.props.detail.commodity || ""}
                         />
                       )}
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <div className="col-sm-2">
+                      <label
+                        className="col-form-label"
+                        style={{ fontWeight: "700" }}
+                      >
+                        Supplier
+                      </label>
+                    </div>
+                    <div className="col-sm-10">
+                      <input
+                        style={{ paddingLeft: "70px" }}
+                        type="text"
+                        readOnly
+                        className="form-control-plaintext"
+                        value={this.props.detail.supplier || ""}
+                      />
                     </div>
                   </div>
                   <div className="form-group row">
@@ -72,9 +130,10 @@ export default class ComponentDetails extends Component {
                       <input
                         style={{ paddingLeft: "70px" }}
                         type="text"
+                        name="cost"
                         readOnly
                         className="form-control-plaintext"
-                        value={`₹ ${this.props.detail.cost}` || ""}
+                        value={this.state.cost}
                       />
                     </div>
                   </div>
@@ -91,7 +150,7 @@ export default class ComponentDetails extends Component {
                         style={{ paddingLeft: "70px" }}
                         readOnly
                         className="form-control-plaintext"
-                        value={this.props.detail.cpr || ""}
+                        value={this.state.cpr}
                       />
                     </div>
                   </div>
@@ -108,7 +167,7 @@ export default class ComponentDetails extends Component {
                         style={{ paddingLeft: "70px" }}
                         readOnly
                         className="form-control-plaintext"
-                        value={this.props.detail.spr || ""}
+                        value={this.state.spr}
                       />
                     </div>
                   </div>
@@ -140,7 +199,7 @@ export default class ComponentDetails extends Component {
           </div>
         </>
       );
-    else if (this.props.list)
+    } else if (this.props.list)
       return (
         <div className="center-content w-100">
           <Empty description={<span>Please select an item</span>} />
