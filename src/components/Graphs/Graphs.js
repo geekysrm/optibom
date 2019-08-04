@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import BarGraph from "./BarGraph";
+import RingChart from "./RingChart";
 
 class Graphs extends Component {
   componentDidMount() {
@@ -87,26 +88,26 @@ class Graphs extends Component {
             />
           </div>
           <div className="col-md-6">
-            <BarGraph
-              heading="To be changed"
+            <RingChart
               data={[
                 {
                   x: "Lowest Cost",
-                  y: `${this.props.bom.lowCostBomTotalCost / 1000}K`,
+                  y: `${this.props.bom.lowCostBomTotalCost}`,
                 },
                 {
                   x: "High SPR",
-                  y: `${this.props.bom.highSprBomTotalCost / 1000}K`,
+                  y: `${this.props.bom.highSprBomTotalCost}`,
                 },
                 {
                   x: "High CPR",
-                  y: `${this.props.bom.highCprBomTotalCost / 1000}K`,
+                  y: `${this.props.bom.highCprBomTotalCost}`,
                 },
                 {
                   x: "Optimal",
-                  y: `${this.props.bom.highSprBomTotalCost / 1000}K`,
+                  y: `${this.props.bom.optimizedBomTotalCost}`,
                 },
               ]}
+              heading="Cost"
             />
           </div>
         </div>
