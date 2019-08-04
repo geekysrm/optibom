@@ -10,7 +10,7 @@ export default class LaptopDetails extends Component {
       <div className="laptop-details">
         <div className="row">
           <div
-            className="col-md-4"
+            className="col-md-3"
             style={{ borderRight: "1px double #007db8" }}
           >
             <div className="laptop-image">
@@ -18,7 +18,7 @@ export default class LaptopDetails extends Component {
             </div>
           </div>
           <div
-            className="col-md-7 mr-2 pt-3"
+            className="col-md-8 mr-2 pt-3 laptop-details-details"
             style={{ borderLeft: "1px double #007db8" }}
           >
             <div className="row">

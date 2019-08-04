@@ -112,7 +112,7 @@ class Result extends Component {
     const { name, id, category } = this.props.bom;
 
     return (
-      <div className="result-container h-100">
+      <div className="result-container">
         <div className="row">
           <div className="col-md-12">
             <LaptopDetails
@@ -136,6 +136,7 @@ class Result extends Component {
                 <ComponentList
                   list={this.props.bom[this.state.selectedCategory]}
                   onClick={this.onClick}
+                  active={this.state.selectedItem}
                 />
               </div>
               {this.props.bom[this.state.selectedCategory] ? (

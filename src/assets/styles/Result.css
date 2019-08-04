@@ -17,6 +17,10 @@
   margin: 1rem;
 }
 
+.laptop-details-details {
+  padding-left: 50px;
+}
+
 .laptop-name {
   font-size: 3rem;
   font-weight: 900;
@@ -42,11 +46,18 @@
   /* overflow-y: auto; */
   padding: 1rem;
   padding-top: 0;
+  width: 80%;
 }
 
 .components-list-header {
   display: table-row;
   text-align: center;
+}
+
+.components-list-header h3 {
+  color: #555656;
+  font-weight: 900;
+  font-size: 40px;
 }
 
 .component-list-content {
@@ -57,14 +68,16 @@
 .components-list-card {
   padding: 1rem;
   margin-bottom: 0.5rem;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+  border: 2px solid #077db8;
+  font-size: 1.3rem;
+  font-weight: 900;
+
+  transition: 0.3s ease-in-out;
 }
 
-.components-list-card:hover {
+.components-list-card:hover,
+.card-active {
+  color: #fff;
+  background-color: #007db8;
   cursor: pointer;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
-}
-
-.components-list-card:focus {
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
 }

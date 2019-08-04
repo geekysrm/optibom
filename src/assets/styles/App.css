@@ -58,7 +58,10 @@ body::-webkit-scrollbar-thumb {
 .result-container {
   /* display: flex;
   flex-direction: column; */
-  margin-top: 75px;
+  min-height: 100vh;
+  margin-top: 50px;
+  background: #f3f7f7;
+  padding: 20px;
 }
 
 /* navbar */
