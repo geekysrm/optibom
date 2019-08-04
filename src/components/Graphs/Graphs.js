@@ -16,7 +16,7 @@ class Graphs extends Component {
     return (
       <>
         <div className="row" style={{ marginTop: "75px" }}>
-          <div className="col-md-6">
+          {/* <div className="col-md-6">
             <BarGraph
               data={[
                 {
@@ -37,6 +37,29 @@ class Graphs extends Component {
                 },
               ]}
               heading="Cost"
+            />
+          </div> */}
+          <div className="col-md-6">
+            <RingChart
+              data={[
+                {
+                  x: "Lowest Cost",
+                  y: `${this.props.bom.lowCostBomTotalCost}`,
+                },
+                {
+                  x: "High SPR",
+                  y: `${this.props.bom.highSprBomTotalCost}`,
+                },
+                {
+                  x: "High CPR",
+                  y: `${this.props.bom.highCprBomTotalCost}`,
+                },
+                {
+                  x: "Optimal",
+                  y: `${this.props.bom.optimizedBomTotalCost}`,
+                },
+              ]}
+              heading="Total Cost"
             />
           </div>
           <div className="col-md-6">
@@ -85,29 +108,6 @@ class Graphs extends Component {
                   y: this.props.bom.optimizedBomAvgSpr,
                 },
               ]}
-            />
-          </div>
-          <div className="col-md-6">
-            <RingChart
-              data={[
-                {
-                  x: "Lowest Cost",
-                  y: `${this.props.bom.lowCostBomTotalCost}`,
-                },
-                {
-                  x: "High SPR",
-                  y: `${this.props.bom.highSprBomTotalCost}`,
-                },
-                {
-                  x: "High CPR",
-                  y: `${this.props.bom.highCprBomTotalCost}`,
-                },
-                {
-                  x: "Optimal",
-                  y: `${this.props.bom.optimizedBomTotalCost}`,
-                },
-              ]}
-              heading="Cost"
             />
           </div>
         </div>

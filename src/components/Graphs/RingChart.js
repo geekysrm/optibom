@@ -63,32 +63,39 @@ export default class RingChart extends PureComponent {
       fill: fill[index],
     }));
     return (
-      <RadialBarChart
-        width={500}
-        height={300}
-        cx={150}
-        cy={150}
-        innerRadius={20}
-        outerRadius={140}
-        barSize={25}
-        data={data}
-      >
-        <RadialBar
-          minAngle={15}
-          label={{ position: "insideStart", fill: "#fff", color: "black" }}
-          background
-          clockWise
-          dataKey="uv"
-        />
-        <Legend
-          iconSize={10}
-          width={120}
-          height={140}
-          layout="vertical"
-          verticalAlign="middle"
-          wrapperStyle={style}
-        />
-      </RadialBarChart>
+      <>
+        <h3>
+          <span style={{ textTransform: "capitalize" }}>
+            {this.props.heading}
+          </span>{" "}
+        </h3>
+        <RadialBarChart
+          width={500}
+          height={300}
+          cx={150}
+          cy={150}
+          innerRadius={20}
+          outerRadius={140}
+          barSize={25}
+          data={data}
+        >
+          <RadialBar
+            minAngle={15}
+            label={{ position: "insideStart", fill: "#fff", color: "black" }}
+            background
+            clockWise
+            dataKey="uv"
+          />
+          <Legend
+            iconSize={10}
+            width={120}
+            height={140}
+            layout="vertical"
+            verticalAlign="middle"
+            wrapperStyle={style}
+          />
+        </RadialBarChart>
+      </>
     );
   }
 }
