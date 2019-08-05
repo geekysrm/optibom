@@ -247,8 +247,10 @@ class Result extends Component {
 }
 
 const mapStateToProps = state => {
+  let curentIndex = Number(localStorage.getItem("currentIndex"));
+
   return {
-    bom: state.bom,
+    bom: state.bom[curentIndex],
   };
 };
 
