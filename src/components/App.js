@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 // import { Layout } from "antd";
-import "../assets/styles/App.css";
+// import "../assets/styles/App.css";
 
 import Navbar from "./Navbar/Navbar";
 import Landing from "./Landing/Landing";

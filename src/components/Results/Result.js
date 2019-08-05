@@ -5,7 +5,7 @@ import { Button } from "antd";
 import exportFromJSON from "export-from-json";
 import axios from "axios";
 
-import "../../assets/styles/Result.css";
+// import "../../assets/styles/Result.css";
 import LaptopDetails from "../LaptopDetails.js/LaptopDetails";
 import ComponentList from "../ComponentList/ComponentList";
 import ComponentDetails from "../ComponentDetails/ComponentDetails";
