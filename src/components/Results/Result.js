@@ -89,6 +89,9 @@ class Result extends Component {
     this.setState({
       editState: !this.state.editState,
     });
+
+    obj.commodity = obj.commodity.split("-")[0];
+
     this.props.updateItem(
       this.state.selectedCategory,
       this.state.selectedItem,
@@ -118,15 +121,11 @@ class Result extends Component {
       `https://backend-optibom.herokuapp.com/backend/get_component_data?component=${name}`
     );
 
-    console.log(res.data.message);
-
     const result = res.data.message.map(x => {
       let a = x;
       a[0] = a[0] + "-" + a[2];
       return a;
     });
-
-    console.log(result);
 
     await this.setState({
       options: result,

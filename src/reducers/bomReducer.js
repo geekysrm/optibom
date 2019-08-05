@@ -70,9 +70,14 @@ export default function(state = initialState, { type, payload }) {
       };
 
     case UPDATE_ITEM:
-      console.log(payload);
+      const Item = payload.Item;
+      const bomType = payload.category;
       return {
         ...state,
+        bomType: [
+          ...state[bomType],
+          (state[bomType][Item] = payload.incomingChanges),
+        ],
       };
 
     default:

@@ -60,11 +60,6 @@ export default class ComponentDetails extends Component {
   }
 
   onChange = e => {
-    console.log(this.props.options);
-    console.log(this.props.selectedItem);
-    console.log(this.state.component);
-    console.log(this.state);
-
     this.setState({ [e.target.name]: e.target.value }, () => {
       this.setState({
         cost: this.props.options
