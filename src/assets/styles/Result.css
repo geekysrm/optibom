@@ -85,3 +85,38 @@
 .form-control-plaintext:focus {
   outline: none;
 }
+
+#new-table thead.ant-table-thead {
+  display: none !important;
+  color: red;
+}
+
+#new-table .ant-table-thead {
+  visibility: hidden !important;
+  display: none !important;
+  color: #f00;
+}
+
+.ant-table-thead > tr > th {
+  position: relative;
+}
+.ant-table-column-sorter {
+  position: static;
+  .ant-table-column-sorter-up,
+  .ant-table-column-sorter-down {
+    position: static;
+    &::after {
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+    &.on::after {
+      pointer-events: none;
+    }
+  }
+
+  .ant-table-column-sorter-up.off + .ant-table-column-sorter-down.off::after {
+    pointer-events: none;
+  }
+}

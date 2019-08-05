@@ -8,37 +8,79 @@ const columns = [
     // specify the condition of filtering result
     // here is that finding the name started with `value`
     // onFilter: (value, record) => record.name.indexOf(value) === 0,
-    // sorter: (a, b) => a.name.length - b.name.length,
-    // sortDirections: ["descend"],
+    sortDirections: ["descend", "ascend"],
+    sorter: (a, b) => a.commodity - b.commodity,
   },
   {
     title: "Component",
     dataIndex: "component",
     // defaultSortOrder: "ascend",
     // sortOrder: "ascend",
-    // sortDirections: ["descend"],
-    // sorter: (a, b) => a.component - b.component,
+    sortDirections: ["descend", "ascend"],
+    sorter: (a, b) => a.component - b.component,
   },
   {
     title: "Supplier",
+    dataIndex: "supplier",
+    sortDirections: ["descend", "ascend"],
+    sorter: (a, b) => a.supplier - b.supplier,
+  },
+  {
+    title: "Cost (in ₹)",
+    dataIndex: "cost",
+    sortDirections: ["descend", "ascend"],
+    sorter: (a, b) => a.cost - b.cost,
+  },
+  {
+    title: "SPR",
+    dataIndex: "spr",
+    sortDirections: ["descend", "ascend"],
+    sorter: (a, b) => a.spr - b.spr,
+  },
+  {
+    title: "CPR",
+    dataIndex: "cpr",
+    sortDirections: ["descend", "ascend"],
+    sorter: (a, b) => a.cpr - b.cpr,
+  },
+];
+
+const newColumns = [
+  {
+    title: "",
+    dataIndex: "commodity",
+    // specify the condition of filtering result
+    // here is that finding the name started with `value`
+    // onFilter: (value, record) => record.name.indexOf(value) === 0,
+    // sorter: (a, b) => a.name.length - b.name.length,
+    // sortDirections: ["descend"],
+  },
+  {
+    title: "",
+    dataIndex: "component",
+    // defaultSortOrder: "ascend",
+    // sortOrder: "ascend",
+  },
+  {
+    title: "",
     dataIndex: "supplier",
     // defaultSortOrder: "descend",
     // sorter: (a, b) => a.age - b.age,
   },
   {
-    title: "Cost (in ₹)",
+    title: "Total Cost (in ₹)",
     dataIndex: "cost",
     // defaultSortOrder: "descend",
     // sorter: (a, b) => a.age - b.age,
   },
   {
-    title: "SPR",
+    title: "Avg SPR",
     dataIndex: "spr",
     // defaultSortOrder: "descend",
     // sorter: (a, b) => a.age - b.age,
   },
   {
-    title: "CPR",
+    title: "Avg CPR",
     dataIndex: "cpr",
     // defaultSortOrder: "descend",
     // sorter: (a, b) => a.age - b.age,
@@ -69,7 +111,19 @@ export default class BomTable extends Component {
           cpr: row.cpr,
         };
       });
-      data.push({
+      // data.push({
+      //   key: 8,
+      //   commodity: "",
+      //   component: "",
+      //   supplier: "",
+      //   cost: <b>{totalCost}</b>,
+      //   spr: <b>{avgSpr}</b>,
+      //   cpr: <b>{avgCpr}</b>,
+      // });
+    }
+
+    let newData = [
+      {
         key: 8,
         commodity: "",
         component: "",
@@ -77,8 +131,8 @@ export default class BomTable extends Component {
         cost: <b>{totalCost}</b>,
         spr: <b>{avgSpr}</b>,
         cpr: <b>{avgCpr}</b>,
-      });
-    }
+      },
+    ];
 
     return (
       <div>
@@ -96,6 +150,12 @@ export default class BomTable extends Component {
           // confirmLoading
         >
           <Table columns={columns} dataSource={data} pagination={false} />
+          <Table
+            id="new-table"
+            columns={newColumns}
+            dataSource={newData}
+            pagination={false}
+          />
         </Modal>
       </div>
     );
