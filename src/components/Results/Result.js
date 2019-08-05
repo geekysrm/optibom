@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import { Button } from "antd";
 import exportFromJSON from "export-from-json";
 import axios from "axios";
+import SMS_URL from "../../constants/SMS_URL";
 
 // import "../../assets/styles/Result.css";
 import LaptopDetails from "../LaptopDetails.js/LaptopDetails";
@@ -25,7 +26,7 @@ class Result extends Component {
     this.setState({ modal2Visible });
   };
 
-  handleXlsDownload = () => {
+  handleXlsDownload = async () => {
     const bomData = this.props.bom[this.state.selectedCategory];
     let data = [];
     if (bomData && bomData.length) {
@@ -73,6 +74,9 @@ class Result extends Component {
     const exportType = "xls";
 
     exportFromJSON({ data, fileName, exportType });
+    const { newdata } = await axios.get(
+      `${SMS_URL}?supplier=Intel&commodity=i3`
+    );
   };
 
   handleComponentEdit = () => {
